@@ -10,6 +10,9 @@ CONFIG      +=  c++11
 
 # Projects
 SUBDIRS     +=  \
-    PluginFactoryLib
+    PluginFactoryLib \
+    plugins \
+    test
+
 
 # Installs

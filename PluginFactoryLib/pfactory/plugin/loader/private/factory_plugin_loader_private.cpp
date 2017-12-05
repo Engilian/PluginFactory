@@ -16,6 +16,7 @@ FactoryPluginLoaderPrivate::FactoryPluginLoaderPrivate():
 
 {
 
+    setPluginDirPath ( _pluginDirectoryPath );
 }
 
 FactoryPluginLoaderPrivate::~FactoryPluginLoaderPrivate()
@@ -31,6 +32,13 @@ QString FactoryPluginLoaderPrivate::pluginDirPath() const
 void FactoryPluginLoaderPrivate::setPluginDirPath(const QString &path)
 {
     _pluginDirectoryPath = path;
+
+    QDir d( _pluginDirectoryPath );
+
+    if ( !d.exists () ) {
+
+        d.mkpath ( "." );
+    }
 }
 
 bool FactoryPluginLoaderPrivate::isRecursiveLoad() const
