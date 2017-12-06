@@ -155,9 +155,13 @@ QStringList FactoryPluginLoaderPrivate::_findPluginFiles(const QString &dirPath,
 
             QString dirName = QDir::cleanPath( name );
 
-            if ( !dirName.isEmpty() && directory.exists( dirName ) ) {
+            if ( dirName.length () >= 3 ) {
 
-                result << directory.absolutePath() + "/" + dirName;
+                if ( !dirName.isEmpty() && directory.exists( dirName ) ) {
+
+                    result << directory.absolutePath() + "/" + dirName;
+                }
+
             }
         }
 
@@ -178,6 +182,10 @@ FactoryPlugin FactoryPluginLoaderPrivate::_loadPlugin(const QString &path) const
 
             return FactoryPlugin( p );
         }
+    }
+    else {
+        qDebug() << "error load plugin: " << QFileInfo( path ).fileName () << ":"
+                 << loader.errorString ();
     }
 
     return FactoryPlugin();
