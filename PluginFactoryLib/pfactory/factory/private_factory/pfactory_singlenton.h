@@ -1,18 +1,20 @@
-#ifndef SINGLENTON_H
-#define SINGLENTON_H
+#ifndef PLUGIN_FACTORY_SINGLENTON_H
+#define PLUGIN_FACTORY_SINGLENTON_H
 
 #include <memory>
+
+namespace pfactory {
 
 template<class T>
 ///
 /// \brief Шаблонная реализация синглтона
 ///
-class Singlenton
+class PFactorySinglenton
 {
 protected:
-    Singlenton(){}
+    PFactorySinglenton(){}
 public:
-    virtual ~Singlenton(){}
+    virtual ~PFactorySinglenton(){}
 public:
     ///
     /// \brief Получить глобальный экземпляр
@@ -36,6 +38,10 @@ private:
 };
 
 template<class T>
-std::shared_ptr<T> Singlenton<T>::instObj;
+std::shared_ptr<T> PFactorySinglenton<T>::instObj;
 
-#endif // SINGLENTON_H
+}
+
+
+
+#endif // PLUGIN_FACTORY_SINGLENTON_H

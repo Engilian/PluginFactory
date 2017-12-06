@@ -51,11 +51,11 @@ HEADERS += \
     pfactory/factory/error_policy/pfactory_throw_exception_error_policy.h \
     pfactory/factory/pfactory.h \
     pfactory/factory/private_factory/pfactory_private.h \
-    pfactory/factory/private_factory/singlenton.h \
     pfactory/factory/private_factory/pfactory_macro.h \
     pfactory/factory/private_factory/pfactory_template_interface_private.h \
     pfactory/factory/private_factory/pfactory_template_plug_creator_private.h \
     pfactory/factory/private_factory/internal_object_creator_private.h \
     pfactory/factory/private_factory/pfactory_interface_private.h \
     pfactory/factory/plugin_interfaces/ipfactory_plugin_controller.h \
-    pfactory/factory/private_factory/pfactory_plugin_controller_private.h
+    pfactory/factory/private_factory/pfactory_plugin_controller_private.h \
+    pfactory/factory/private_factory/pfactory_singlenton.h

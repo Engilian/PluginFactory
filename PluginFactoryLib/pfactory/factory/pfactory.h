@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-#include "private_factory/singlenton.h"
+#include "private_factory/pfactory_singlenton.h"
 #include "error_policy/pfactory_ignore_error_policy.h"
 #include "error_policy/pfactory_throw_exception_error_policy.h"
 
@@ -16,7 +16,7 @@
 
 namespace pfactory {
 
-class PFactory: public Singlenton<PFactory>
+class PFactory: public PFactorySinglenton<PFactory>
 {
 public:
     PFactory();
