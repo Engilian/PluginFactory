@@ -23,7 +23,8 @@ public:
     /// \param msg except string
     ///
     PFactoryException( const QString &msg ) noexcept;
-    virtual ~PFactoryException();
+
+    virtual ~PFactoryException() noexcept;
 public:
     virtual const char* what() const noexcept;
 private:

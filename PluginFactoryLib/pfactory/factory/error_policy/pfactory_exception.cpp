@@ -13,7 +13,7 @@ PFactoryException::PFactoryException(const QString &msg) noexcept:
 
 }
 
-PFactoryException::~PFactoryException()
+PFactoryException::~PFactoryException() noexcept
 {
 
 }

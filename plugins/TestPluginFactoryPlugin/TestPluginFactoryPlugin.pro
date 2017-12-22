@@ -6,9 +6,10 @@
 
 QT       += core gui
 
-TARGET = TestPluginFactoryPlugin
-TEMPLATE = lib
-CONFIG += plugin
+TARGET      = TestPluginFactoryPlugin
+TEMPLATE    = lib
+CONFIG      += plugin
+CONFIG      += c++11
 
 DESTDIR = ../../build/plug
 
