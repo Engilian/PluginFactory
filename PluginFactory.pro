@@ -5,14 +5,15 @@
 #######################################
 
 TEMPLATE    =   subdirs
-CONFIG      +=  ordered
-CONFIG      +=  c++11
+CONFIG      += ordered
 
 # Projects
 SUBDIRS     +=  \
-    PluginFactoryLib \
-    plugins \
-    test
+    src/libs    \
+    src/plugins \
+    src/test \
 
+#src/plugins.depends = src/libs
+#src/test.depends    = src/libs
 
 # Installs
