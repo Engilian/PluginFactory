@@ -207,9 +207,9 @@ public: // Add creators
     }
 
     template<typename Interface>
-    QStringList creatorsName( const QString &interface ) {
+    QStringList creatorsName() {
 
-        auto i = getInterfaceName( interface );
+        auto i = getInterfaceName<Interface>();
 
         QStringList result = _internal[ i ].keys();
         result.append ( _external[i].keys() );
