@@ -4,7 +4,7 @@
 #include <QString>
 #include <typeinfo>
 
-namespace pfactory {
+namespace pf {
 
 template<class T>
 ///
@@ -26,6 +26,13 @@ public:
 
         _d = _d ? _d : new T();
         return _d;
+    }
+
+    ///
+    /// \brief Global instance
+    ///
+    static T *inst() {
+        return instance ();
     }
 
     ///

@@ -5,7 +5,6 @@
 #include <plugin_system/iplugin.h>
 #include <factory_plugin/iobject_creator.h>
 
-
 class TestPluginFactoryPlugin: public QObject, public psys::IPlugin
 {
     Q_OBJECT
@@ -27,6 +26,9 @@ public:
 public:
     QList<psys::SubPluginInfo> subPluginInfoList() const;
     psys::ISubPlugin *create( const QString &id ) const;
+
+private:
+    QList<psys::SubPluginInfo> creators;
 };
 
 #endif // TEST_PLUGIN_FACTORY_PLUGIN_H

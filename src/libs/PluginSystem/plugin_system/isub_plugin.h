@@ -13,7 +13,7 @@ using SubPlugin = std::shared_ptr<ISubPlugin>;
 ///
 /// \brief Information about the sub plugin
 ///
-struct SubPluginInfo {
+struct SubPluginInfo final {
 
     ////
     /// \brief Sub plugin id
@@ -29,6 +29,24 @@ struct SubPluginInfo {
     /// \brief Description of the sub plugin
     ///
     QString description;
+
+    // constructs
+    SubPluginInfo();
+    SubPluginInfo( const QString &id,
+                   const QString &interface,
+                   const QString &desc );
+    SubPluginInfo( const SubPluginInfo &info );
+
+    // Operators
+
+    bool operator==( const QString &id ) const;
+    bool operator!=( const QString &id ) const;
+
+    bool operator==( const SubPluginInfo &info ) const;
+    bool operator!=( const SubPluginInfo &info ) const;
+
+    bool operator>( const SubPluginInfo &info ) const;
+    bool operator<( const SubPluginInfo &info ) const;
 };
 
 ///

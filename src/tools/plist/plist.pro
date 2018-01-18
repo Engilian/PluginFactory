@@ -1,28 +1,19 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-12-05T15:20:01
-#
-#-------------------------------------------------
+QT          += core
+QT          -= gui
 
-QT       += core network
-
-TARGET      = empty_test_plugin
-TEMPLATE    = lib
-CONFIG      += plugin
 CONFIG      += c++11
-DESTDIR     = ../../../bin/plug
+
+TARGET      = plist
+CONFIG      += console
+CONFIG      -= app_bundle
+DESTDIR     = ../../../bin
+
+TEMPLATE = app
+
+SOURCES += main.cpp
 
 DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
-
-SOURCES += \
-    test_plugin.cpp
-
-HEADERS += \
-    test_plugin.h
-
-DISTFILES += \
-    TestPlugin.json
 
 #   Factory
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../libs/Factory/bin/ -lFactory

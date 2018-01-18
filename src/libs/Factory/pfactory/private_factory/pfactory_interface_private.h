@@ -3,7 +3,7 @@
 
 #include <QString>
 
-namespace pfactory {
+namespace pf {
 
 class PFactoryInterfacePrivate
 {

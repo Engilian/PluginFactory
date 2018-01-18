@@ -4,7 +4,7 @@
 #include <QString>
 #include <memory>
 
-namespace pfactory {
+namespace pf {
 
 ///
 /// \brief Plugin factory exception

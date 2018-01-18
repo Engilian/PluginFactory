@@ -1,5 +1,5 @@
 #include "pfactory_plugin_controller_private.h"
-using namespace pfactory;
+using namespace pf;
 
 #include <QDir>
 #include <QCoreApplication>
@@ -24,8 +24,8 @@ void PFactoryPluginControllerPrivate::setPluginsDirectory(const QString &path)
 
         _loader.setPluginDirPath ( path );
 
-        _plugins.clear ();
         _creators.clear ();
+        _plugins.clear ();
 
         _loadPlugins ();
     }
@@ -96,7 +96,16 @@ void PFactoryPluginControllerPrivate::_loadPlugins()
                 }
             }
 
-            _creators << psys::SubPlugin( plug->create ( subInfo ) );
+            auto subPlugin = psys::SubPlugin( plug->create ( subInfo ) );
+
+            if ( subPlugin ) {
+
+                _creators << subPlugin;
+            }
+            else {
+
+                // Error create sub plugin
+            }
         }
 
         _plugins << p.first;

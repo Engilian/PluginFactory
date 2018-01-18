@@ -1,9 +1,28 @@
 #include "test_plugin.h"
 
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QNetworkAccessManager>
+
+#include <factory_plugin/object_creator.h>
+
+QList<psys::SubPluginInfo> createCreators() {
+
+    QList<psys::SubPluginInfo> creators;
+
+    creators << psys::SubPluginInfo { "QObject", "QObject", "" };
+    creators << psys::SubPluginInfo { "QTcpServer", "QObject", "" };
+    creators << psys::SubPluginInfo { "QTcpSocket", "QObject", "" };
+    creators << psys::SubPluginInfo { "QNetworkAccessManager", "QObject", "" };
+    creators << psys::SubPluginInfo { "error_creator", "QObject", "" };
+
+    return creators;
+}
 
 TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent) :
     QObject(parent),
-    psys::IPlugin()
+    psys::IPlugin(),
+    creators ( createCreators () )
 {
 }
 
@@ -14,7 +33,7 @@ TestPluginFactoryPlugin::~TestPluginFactoryPlugin()
 
 QString TestPluginFactoryPlugin::name() const
 {
-    return "Test PFactory plugin";
+    return "PFactory plugin for unit test";
 }
 
 QString TestPluginFactoryPlugin::logo() const
@@ -46,34 +65,24 @@ QString TestPluginFactoryPlugin::version() const
 
 QList<psys::SubPluginInfo> TestPluginFactoryPlugin::subPluginInfoList() const
 {
-    QList<psys::SubPluginInfo> result;
-
-    result << psys::SubPluginInfo {
-              "Emty 1",
-              "Empty interface 1",
-              "Test empty interface" };
-
-    result << psys::SubPluginInfo {
-              "Emty 2",
-              "Empty interface 2",
-              "Test empty interface" };
-
-    result << psys::SubPluginInfo {
-              "Emty 3",
-              "Empty interface 3",
-              "Test empty interface" };
-
-    result << psys::SubPluginInfo {
-              "Emty 4",
-              "Empty interface 4",
-              "Test empty interface" };
-
-    return result;
+    return creators;
 }
 
 psys::ISubPlugin *TestPluginFactoryPlugin::create(const QString &id) const
 {
-    Q_UNUSED( id );
+
+    if ( id.compare( "QObject" ) == 0 ) {
+        return new pf::ObjectCreator<QObject, QObject>( "QObject", "QObject", "" );
+    }
+    else if ( id.compare( "QTcpServer" ) == 0 ) {
+        return new pf::ObjectCreator<QObject, QTcpServer>( "QTcpServer", "QObject", "" );
+    }
+    else if ( id.compare( "QTcpSocket" ) == 0 ) {
+        return new pf::ObjectCreator<QObject, QTcpSocket>( "QTcpSocket", "QObject", "" );
+    }
+    else if ( id.compare( "QNetworkAccessManager" ) == 0 ) {
+        return new pf::ObjectCreator<QObject, QNetworkAccessManager>( "QNetworkAccessManager", "QObject", "" );
+    }
 
     return nullptr;
 }

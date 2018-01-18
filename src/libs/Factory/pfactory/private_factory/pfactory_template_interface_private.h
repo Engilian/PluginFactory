@@ -5,7 +5,7 @@
 #include <factory_plugin/iobject_creator.h>
 #include "pfactory/error_policy/pfactory_ignore_error_policy.h"
 
-namespace pfactory {
+namespace pf {
 
 template<typename Interface,  template<class> class ErrorPolicy = PFactoryIgnoreErrorPolicy >
 ///

@@ -1,5 +1,5 @@
 #include "pfactory_exception.h"
-using namespace pfactory;
+using namespace pf;
 
 PFactoryException::PFactoryException(const std::string &msg) noexcept:
     _msg( msg )

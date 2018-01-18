@@ -3,7 +3,7 @@
 
 #include <factory_plugin/iobject_creator.h>
 
-namespace pfactory {
+namespace pf {
 
 template<typename Interface, typename Obj>
 

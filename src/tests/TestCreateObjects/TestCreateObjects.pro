@@ -1,28 +1,23 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2017-12-05T15:20:01
-#
-#-------------------------------------------------
+QT       += testlib
 
-QT       += core network
+QT       -= gui
 
-TARGET      = empty_test_plugin
-TEMPLATE    = lib
-CONFIG      += plugin
+TARGET      = tst_createobjects
+CONFIG      += console
+CONFIG      -= app_bundle
+TEMPLATE    = app
 CONFIG      += c++11
-DESTDIR     = ../../../bin/plug
+
 
 DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
 
+
 SOURCES += \
-    test_plugin.cpp
+        tst_createobjects.cpp
 
-HEADERS += \
-    test_plugin.h
+DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
-DISTFILES += \
-    TestPlugin.json
 
 #   Factory
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../libs/Factory/bin/ -lFactory

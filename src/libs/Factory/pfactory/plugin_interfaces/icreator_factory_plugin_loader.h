@@ -4,7 +4,7 @@
 #include <plugin_system/loader/iplugin_loader.h>
 #include <factory_plugin/iobject_creator.h>
 
-namespace pfactory {
+namespace pf {
 
 ///
 /// \brief The creator of the plugin loader.

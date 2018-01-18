@@ -3,7 +3,7 @@
 
 #include "pfactory_exception.h"
 
-namespace pfactory {
+namespace pf {
 
 template <class Base>
 

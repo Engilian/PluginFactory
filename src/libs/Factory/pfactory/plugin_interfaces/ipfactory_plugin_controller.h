@@ -7,7 +7,7 @@
 #include <plugin_system/isub_plugin.h>
 #include <factory_plugin/iobject_creator.h>
 
-namespace pfactory {
+namespace pf {
 
 class IPFactoryPluginController;
 using PFactoryPluginController = std::shared_ptr<IPFactoryPluginController>;

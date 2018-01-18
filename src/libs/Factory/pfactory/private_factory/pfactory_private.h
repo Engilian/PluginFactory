@@ -21,7 +21,7 @@
 
 
 
-namespace pfactory {
+namespace pf {
 
 template<template<class> class ErrorPolicy = PFactoryIgnoreErrorPolicy >
 ///
@@ -162,6 +162,10 @@ public: // Add creators
                             <Interface, ErrorPolicy>( creator )
                             );
                 iMap[ sub->subPluginInfo().id ] = ptr;
+            }
+            else {
+                printf ( "Error cast creator %s",
+                         sub->subPluginInfo ().id.toStdString ().c_str () );
             }
         }
 

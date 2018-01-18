@@ -5,15 +5,15 @@
 
 #include <pfactory/pfactory.h>
 
-using namespace pfactory;
+using namespace pf;
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
     a.setApplicationName ( "plist" );
 
-    PFactory::instance ();
-    PFactory::instance ()->controller ()->setPluginsDirectory (
+    Factory::instance ();
+    Factory::instance ()->controller ()->setPluginsDirectory (
                 QDir::fromNativeSeparators ( QCoreApplication::applicationDirPath () +
                                              "/plug" ) );
 
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     printf ( "Avalaible plugins:" "\n\n" );
 
     int pluginNumber = 1;
-    for ( auto p: PFactory::instance ()->controller ()->plugins () ) {
+    for ( auto p: Factory::instance ()->controller ()->plugins () ) {
 
         printf ( "%d. %s v%s\n",
                  pluginNumber++,

@@ -1,5 +1,5 @@
 #include "icreator_factory_plugin_loader.h"
-using namespace pfactory;
+using namespace pf;
 
 ICreatorFactoryPluginLoader::ICreatorFactoryPluginLoader(const QString &id):
     IObjectCreator<psys::IPluginLoader>( id )

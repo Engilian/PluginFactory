@@ -11,7 +11,8 @@ CONFIG      += ordered
 SUBDIRS     +=  \
     src/libs    \
     src/plugins \
-    src/test \
+    src/tests   \
+    src/tools
 
 #src/plugins.depends = src/libs
 #src/test.depends    = src/libs

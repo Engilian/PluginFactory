@@ -61,8 +61,7 @@ public:
     /// \return Load results list
     ///
     virtual QList<std::pair<QString, bool>> loadPluginList(
-            QList<QString> pathes
-            ) = 0;
+            QList<QString> pathes ) = 0;
 
     ///
     /// \brief All loaded plugin

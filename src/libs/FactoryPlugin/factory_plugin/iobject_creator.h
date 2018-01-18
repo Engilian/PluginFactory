@@ -9,7 +9,7 @@
 #define TO_STRING(x) typeid(x).name()
 #define FACTORY_CREATOR "PluginFactory::IObjectCreator"
 
-namespace pfactory {
+namespace pf {
 
 template<class Interface>
 ///
@@ -41,7 +41,7 @@ public:
 };
 
 template<class Interface>
-using ObjectCreator = std::shared_ptr<IObjectCreator<Interface>>;
+using ObjCreator = std::shared_ptr<IObjectCreator<Interface>>;
 
 }
 

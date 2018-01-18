@@ -4,7 +4,7 @@
 #include "pfactory_template_interface_private.h"
 #include <factory_plugin/iobject_creator.h>
 
-namespace pfactory {
+namespace pf {
 
 template<typename Interface,  template<class> class ErrorPolicy = PFactoryIgnoreErrorPolicy >
 
@@ -19,7 +19,7 @@ public:
         Parent( creator->subPluginInfo().id, creator->subPluginInfo().interfaceId ),
         _creator( creator ) {}
 
-    PFactoryTemplatePlugCreatorPrivate(ObjectCreator<Interface> creator):
+    PFactoryTemplatePlugCreatorPrivate(ObjCreator<Interface> creator):
         Parent( creator->subPluginInfo().id, creator->subPluginInfo().interfaceId ),
         _creator( creator ) {}
 public:

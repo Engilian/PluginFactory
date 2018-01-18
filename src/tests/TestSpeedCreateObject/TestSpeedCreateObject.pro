@@ -1,19 +1,23 @@
-QT          += core
-QT          -= gui
+QT       += testlib
 
-CONFIG      += c++11
+QT       -= gui
 
-TARGET      = plist
+TARGET      = tst_speedcreateobject
 CONFIG      += console
 CONFIG      -= app_bundle
-DESTDIR     = bin
 
-TEMPLATE = app
+TEMPLATE    = app
+CONFIG      += c++11
 
-SOURCES += main.cpp
 
 DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
+
+
+SOURCES += \
+        tst_speedcreateobject.cpp
+
+DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 #   Factory
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../libs/Factory/bin/ -lFactory

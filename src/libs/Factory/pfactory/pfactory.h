@@ -6,7 +6,9 @@
 #include "error_policy/pfactory_ignore_error_policy.h"
 #include "error_policy/pfactory_throw_exception_error_policy.h"
 
-namespace pfactory {
+#define pfactory pf
+
+namespace pf {
 
 template<template<class> class ErrorPolicy >
 ///
@@ -33,14 +35,17 @@ public:
 /// \details In this implementation, the add, delete, and create
 ///  errors are not handled
 ///
-using PFactory = PBaseFactory<PFactoryIgnoreErrorPolicy>;
+using Factory = PBaseFactory<PFactoryIgnoreErrorPolicy>;
 
 ///
 /// \brief Plugin factory
 /// \details In this implementation, add, delete, and create errors
 ///  generate exceptions
 ///
-using PFactoryExp = PBaseFactory<PFactoryThrowExceptionErrorPolicy>;
+using FactoryExp = PBaseFactory<PFactoryThrowExceptionErrorPolicy>;
+
+using PFactory      = Factory;
+using PFactoryExp   = FactoryExp;
 }
 
 

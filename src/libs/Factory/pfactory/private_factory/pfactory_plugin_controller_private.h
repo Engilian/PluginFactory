@@ -4,7 +4,7 @@
 #include "pfactory/plugin_interfaces/ipfactory_plugin_controller.h"
 #include <plugin_system/loader/plugin_loader.h>
 
-namespace pfactory {
+namespace pf {
 
 ///
 /// \brief The PFactoryPluginControllerPrivate class
