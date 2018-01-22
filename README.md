@@ -190,8 +190,7 @@ The plug-in implementation file for the factory test_plugin.cpp
 
 TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent) :
     QObject(parent),
-    pf::FactoryPlugin(),
-    creators ( createCreators () )
+    pf::FactoryPlugin()
 {
 
     // Adding the QObject interface implementation -> QTcpServer.
