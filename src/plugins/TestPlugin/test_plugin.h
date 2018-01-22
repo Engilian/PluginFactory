@@ -3,9 +3,9 @@
 
 #include <QObject>
 #include <plugin_system/iplugin.h>
-#include <factory_plugin/iobject_creator.h>
+#include <factory_plugin/factory_plugin.h>
 
-class TestPluginFactoryPlugin: public QObject, public psys::IPlugin
+class TestPluginFactoryPlugin: public QObject, public pf::FactoryPlugin
 {
     Q_OBJECT
     Q_INTERFACES (psys::IPlugin)
@@ -25,10 +25,6 @@ public:
     QString version() const;
 public:
     QList<psys::SubPluginInfo> subPluginInfoList() const;
-    psys::ISubPlugin *create( const QString &id ) const;
-
-private:
-    QList<psys::SubPluginInfo> creators;
 };
 
 #endif // TEST_PLUGIN_FACTORY_PLUGIN_H

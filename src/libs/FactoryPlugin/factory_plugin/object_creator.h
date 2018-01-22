@@ -13,7 +13,8 @@ public:
                  const QString &interface,
                  const QString &desc = "" ):
         IObjectCreator<Interface> ( id, interface , desc ){}
-
+    ObjectCreator( const psys::SubPluginInfo &info ):
+        IObjectCreator<Interface>( info ) {}
     ~ObjectCreator(){}
 public:
     virtual Interface *create() const {

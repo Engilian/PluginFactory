@@ -22,6 +22,8 @@ protected:
                     const QString &interface    = TO_STRING( Interface ),
                     const QString &desc         = QString( "Creator ").append ( TO_STRING( Interface ) ) ):
         psys::ISubPlugin( { id, interface, desc } ){}
+    IObjectCreator( const psys::SubPluginInfo &info ):
+        psys::ISubPlugin( info ) {}
 public:
     virtual ~IObjectCreator(){}
 public:

@@ -12,11 +12,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 HEADERS += \
     factory_plugin/iobject_creator.h \
-    factory_plugin/object_creator.h
+    factory_plugin/object_creator.h \
+    factory_plugin/factory_plugin.h \
+    factory_plugin/sub_plugin_creator.h
 
 SOURCES += \
     factory_plugin/iobject_creator.cpp \
-    factory_plugin/object_creator.cpp
+    factory_plugin/object_creator.cpp \
+    factory_plugin/factory_plugin.cpp \
+    factory_plugin/sub_plugin_creator.cpp
 
 
 # Factory system library

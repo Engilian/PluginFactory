@@ -4,26 +4,26 @@
 #include <QTcpSocket>
 #include <QNetworkAccessManager>
 
-#include <factory_plugin/object_creator.h>
-
-QList<psys::SubPluginInfo> createCreators() {
-
-    QList<psys::SubPluginInfo> creators;
-
-    creators << psys::SubPluginInfo { "QObject", "QObject", "" };
-    creators << psys::SubPluginInfo { "QTcpServer", "QObject", "" };
-    creators << psys::SubPluginInfo { "QTcpSocket", "QObject", "" };
-    creators << psys::SubPluginInfo { "QNetworkAccessManager", "QObject", "" };
-    creators << psys::SubPluginInfo { "error_creator", "QObject", "" };
-
-    return creators;
-}
-
 TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent) :
     QObject(parent),
-    psys::IPlugin(),
-    creators ( createCreators () )
+    pf::FactoryPlugin()
 {
+
+
+    regCreator<QObject, QObject>( psys::SubPluginInfo
+    { "QObject", "QObject", "QObject class" } );
+
+    // Adding the QObject interface implementation -> QTcpServer.
+    regCreator<QObject, QTcpServer>( psys::SubPluginInfo
+    { "QTcpServer", "QObject", "QTcpServer class" } );
+
+    // Adding the QObject interface implementation -> QTcpSocket.
+    regCreator<QObject, QTcpSocket>( psys::SubPluginInfo
+    { "QTcpSocket", "QObject", "QTcpSocket class" } );
+
+    // Adding the QObject interface implementation -> QNetworkAccessManager.
+    regCreator<QObject, QNetworkAccessManager>( psys::SubPluginInfo
+    { "QNetworkAccessManager", "QObject", "QNetworkAccessManager class" } );
 }
 
 TestPluginFactoryPlugin::~TestPluginFactoryPlugin()
@@ -65,26 +65,12 @@ QString TestPluginFactoryPlugin::version() const
 
 QList<psys::SubPluginInfo> TestPluginFactoryPlugin::subPluginInfoList() const
 {
-    return creators;
-}
+    auto result = FactoryPlugin::subPluginInfoList ();
 
-psys::ISubPlugin *TestPluginFactoryPlugin::create(const QString &id) const
-{
+    // Added error interface ( for tests )
+    result << psys::SubPluginInfo { "error_creator", "QObject", "" };
 
-    if ( id.compare( "QObject" ) == 0 ) {
-        return new pf::ObjectCreator<QObject, QObject>( "QObject", "QObject", "" );
-    }
-    else if ( id.compare( "QTcpServer" ) == 0 ) {
-        return new pf::ObjectCreator<QObject, QTcpServer>( "QTcpServer", "QObject", "" );
-    }
-    else if ( id.compare( "QTcpSocket" ) == 0 ) {
-        return new pf::ObjectCreator<QObject, QTcpSocket>( "QTcpSocket", "QObject", "" );
-    }
-    else if ( id.compare( "QNetworkAccessManager" ) == 0 ) {
-        return new pf::ObjectCreator<QObject, QNetworkAccessManager>( "QNetworkAccessManager", "QObject", "" );
-    }
-
-    return nullptr;
+    return result;
 }
 
 #if QT_VERSION < 0x050000
