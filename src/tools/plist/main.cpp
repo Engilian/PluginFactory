@@ -25,23 +25,25 @@ int main(int argc, char *argv[])
     printf ( "Avalaible plugins:" "\n\n" );
 
     int pluginNumber = 1;
-    for ( auto p: Factory::instance ()->controller ()->plugins () ) {
+    for ( auto p: Factory::instance ()->controller ()->pluginsInfo () ) {
 
-        printf ( "%d. %s v%s\n",
+        printf ( "%d. %s v%s\n(f: %s uid: [%s])\n",
                  pluginNumber++,
-                 p->name ().toStdString ().c_str (),
-                 p->version ().toStdString ().c_str () );
+                 p.plugin ()->name ().toStdString ().c_str (),
+                 p.plugin ()->version ().toStdString ().c_str (),
+                 p.fileName ().toStdString ().c_str (),
+                 p.uid ().toStdString ().c_str () );
 
         printf ( "author:   %s \n"
                  "brief:    %s \n"
                  "details:  %s \n"
                  "subs: \n",
-                 p->author ().toStdString ().c_str (),
-                 p->briefInfo ().toStdString ().c_str (),
-                 p->detailedInfo ().toStdString ().c_str () );
+                 p.plugin ()->author ().toStdString ().c_str (),
+                 p.plugin ()->briefInfo ().toStdString ().c_str (),
+                 p.plugin ()->detailedInfo ().toStdString ().c_str () );
 
         int subPluginNumver = 1;
-        for ( auto &info: p->subPluginInfoList () ) {
+        for ( auto &info: p.plugin ()->subPluginInfoList () ) {
 
             printf ( "\t %d. id: %s interface: %s\n",
                      subPluginNumver++,

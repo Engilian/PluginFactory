@@ -23,20 +23,12 @@ QList<SubPluginInfo> pf::FactoryPlugin::subPluginInfoList() const
 {
     QList<SubPluginInfo> result;
 
-    for ( auto *s: creators ) {
-
-        result << s->info;
-    }
+    for ( auto *s: creators )  result << s->info;
 
     return result;
 }
 
 ISubPlugin *pf::FactoryPlugin::create(const QString &id) const
 {
-    if ( creators.contains ( id ) ) {
-
-        return creators[ id ]->create();
-    }
-
-    return nullptr;
+    return creators.contains ( id ) ? creators[ id ]->create(): nullptr;
 }

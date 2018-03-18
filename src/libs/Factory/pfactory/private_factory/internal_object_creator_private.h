@@ -18,8 +18,8 @@ public:
     ///
     /// \brief Create object
     ///
-    Interface *create() const {
-
+    Interface *create() const
+    {
         return new Obj();
     }
 

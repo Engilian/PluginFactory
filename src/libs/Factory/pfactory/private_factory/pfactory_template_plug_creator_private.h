@@ -30,8 +30,8 @@ public:
     ///
     /// \brief Create object
     ///
-    Interface *create( Args ...args ) const {
-
+    Interface *create( Args ...args ) const
+    {
         Interface *obj = nullptr;
 
         if ( _creator.get() ) {

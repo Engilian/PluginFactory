@@ -65,7 +65,7 @@ pf::Factory::instance ()->add<QObject>( "QObject" );
 
 QList<QObject *> objects;
 // Obtaining and enumerating all available interface implementations.
-for ( auto &id: f->creatorsName<QObject>() ) {
+for ( auto &id: f->creatorNames<QObject>() ) {
 
     // Create a specific implementation.
     objects << pf::Factory::instance ()->create<QObject>( id );

@@ -20,7 +20,8 @@ protected:
 public:
     virtual ~PFactoryTemplateInterfacePrivate(){}
 public:
-    virtual ErrorPolicy<Interface> policy() const {
+    virtual ErrorPolicy<Interface> policy() const
+    {
         return _policy;
     }
 protected:

@@ -2,6 +2,7 @@
 #define IFACTORY_PLUGIN_LOADER_H
 
 #include <plugin_system/iplugin.h>
+#include <plugin_system/plugin_info.h>
 
 namespace psys {
 
@@ -48,6 +49,8 @@ public:
     virtual QList<std::pair<Plugin, QString>> allPluginsList() const = 0;
 public:
 
+    virtual void loadAllPlugins() = 0;
+
     ////
     /// \brief Load plugin
     /// \param pluginPath plagin file path
@@ -75,6 +78,20 @@ public:
     /// \return if the pointer to the plug-in is successful, otherwise empty
     ///
     virtual Plugin loadedPlugin( const QString &id ) const = 0;
+
+    ///
+    /// \brief Load plugin info list
+    /// \param pathes List of pathways to plugins
+    /// \return Load results list
+    ///
+    virtual QList<PluginInfo> loadedPluginsInfo() const = 0;
+
+    ///
+    /// \brief pluginInfo
+    /// \param id
+    /// \return
+    ///
+    virtual PluginInfo loadedPluginInfo( const QString &id ) const = 0;
 
     ///
     /// \brief isLoadedPlugin

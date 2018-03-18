@@ -70,19 +70,25 @@ QList<std::pair<Plugin, QString> > PluginLoaderPrivate::allPluginsList() const
     return plugins;
 }
 
+void PluginLoaderPrivate::loadAllPlugins()
+{
+    loadPluginList ( _findPluginFiles( _pluginDirectoryPath, _isRecursiveLoad ) );
+}
+
+
 bool PluginLoaderPrivate::loadPlugin(const QString &pluginPath)
 {
     auto p = _loadPlugin( pluginPath );
 
     if ( p ) {
 
-        if ( _plugins.contains( p->name() ) ) {
+        if ( _plugins.contains( p->id () ) ) {
 
             return false;
         }
         else {
-
-            _plugins[ p->name() ] = p;
+            auto pinfo = PluginInfo( p, pluginPath );
+            _plugins[ p->id() ] = pinfo;
             return true;
         }
     }
@@ -104,10 +110,22 @@ QList<std::pair<QString, bool> > PluginLoaderPrivate::loadPluginList(QList<QStri
 
 QList<Plugin> PluginLoaderPrivate::loadedPlugins() const
 {
-    return _plugins.values();
+    QList<Plugin> result;
+    for ( auto &info: _plugins.values () ) result << info.plugin ();
+    return result;
 }
 
 Plugin PluginLoaderPrivate::loadedPlugin(const QString &id) const
+{
+    return _plugins[ id ].plugin ();
+}
+
+QList<PluginInfo> PluginLoaderPrivate::loadedPluginsInfo() const
+{
+    return _plugins.values ();
+}
+
+PluginInfo PluginLoaderPrivate::loadedPluginInfo(const QString &id) const
 {
     return _plugins[ id ];
 }

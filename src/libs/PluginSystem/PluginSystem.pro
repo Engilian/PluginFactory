@@ -14,11 +14,15 @@ HEADERS += \
     plugin_system/iplugin.h \
     plugin_system/loader/iplugin_loader.h \
     plugin_system/loader/plugin_loader.h \
-    plugin_system/loader/private/plugin_loader_private.h
+    plugin_system/loader/private/plugin_loader_private.h \
+    plugin_system/plugin_info.h \
+    plugin_system/sub_plugin_info.h
 
 SOURCES += \
     plugin_system/isub_plugin.cpp \
     plugin_system/iplugin.cpp \
     plugin_system/loader/private/plugin_loader_private.cpp \
     plugin_system/loader/plugin_loader.cpp \
-    plugin_system/loader/iplugin_loader.cpp
+    plugin_system/loader/iplugin_loader.cpp \
+    plugin_system/plugin_info.cpp \
+    plugin_system/sub_plugin_info.cpp

@@ -1,5 +1,5 @@
-#ifndef TEST_PLUGIN_FACTORY_PLUGIN_H
-#define TEST_PLUGIN_FACTORY_PLUGIN_H
+#ifndef TST_PLUGIN_FOR_PFACTORY_H
+#define TST_PLUGIN_FOR_PFACTORY_H
 
 #include <QObject>
 #include <plugin_system/iplugin.h>
@@ -17,14 +17,14 @@ public:
     TestPluginFactoryPlugin(QObject *parent = 0);
     ~TestPluginFactoryPlugin();
 public:
-    QString name() const;
-    QString logo() const;
-    QString briefInfo() const;
-    QString detailedInfo() const;
-    QString author() const;
-    QString version() const;
+    QString name() const override;
+    QString logo() const override;
+    QString briefInfo() const override;
+    QString detailedInfo() const override;
+    QString author() const override;
+    QString version() const override;
 public:
-    QList<psys::SubPluginInfo> subPluginInfoList() const;
+    QList<psys::SubPluginInfo> subPluginInfoList() const override;
 };
 
-#endif // TEST_PLUGIN_FACTORY_PLUGIN_H
+#endif // TST_PLUGIN_FOR_PFACTORY_H

@@ -13,6 +13,20 @@ IPlugin::~IPlugin()
 
 }
 
+QString IPlugin::id() const {
+    return name () + " " + version () + "(" + author () + ")";
+}
+
+QString IPlugin::logo() const
+{
+    return "";
+}
+
+QString IPlugin::detailedInfo() const
+{
+    return "";
+}
+
 bool IPlugin::versionComparer(const QString &v) const
 {
     double currentVersion   = QVariant( version() ).toDouble();

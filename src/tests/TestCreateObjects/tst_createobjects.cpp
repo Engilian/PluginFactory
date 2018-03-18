@@ -52,7 +52,7 @@ void CreateObjectsTest::loadTestPlugin()
 void CreateObjectsTest::creatorsCount()
 {
     auto *f = pf::Factory::inst ();
-    QVERIFY ( f->creatorsName<QObject>().count() == 4 );
+    QVERIFY ( f->creatorNames<QObject>().count() == 4 );
 }
 
 void CreateObjectsTest::loadCrators()
@@ -69,7 +69,7 @@ void CreateObjectsTest::loadCrators()
 
         bool isFind = false;
 
-        for ( auto &c: f->creatorsName<QObject>() ) {
+        for ( auto &c: f->creatorNames<QObject>() ) {
 
             if ( creatorName.compare ( c ) == 0 ) {
 
@@ -87,7 +87,7 @@ void CreateObjectsTest::createObjects()
     auto *f = pf::Factory::inst ();
 
     // Test all creators
-    for ( auto &id: f->creatorsName<QObject>() ) {
+    for ( auto &id: f->creatorNames<QObject>() ) {
 
         auto *obj = f->create<QObject>( id );
 
@@ -104,6 +104,7 @@ void CreateObjectsTest::createObjects()
 void CreateObjectsTest::testDefaultCreator()
 {
     auto *f = pf::Factory::inst ();
+    f->setDefault<QObject>( f->creatorNames<QObject>().first() );
 
     // Test default creator
     auto *obj = f->create<QObject>();

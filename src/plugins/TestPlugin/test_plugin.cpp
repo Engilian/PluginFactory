@@ -8,8 +8,6 @@ TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent) :
     QObject(parent),
     pf::FactoryPlugin()
 {
-
-
     regCreator<QObject, QObject>( psys::SubPluginInfo
     { "QObject", "QObject", "QObject class" } );
 
@@ -68,7 +66,7 @@ QList<psys::SubPluginInfo> TestPluginFactoryPlugin::subPluginInfoList() const
     auto result = FactoryPlugin::subPluginInfoList ();
 
     // Added error interface ( for tests )
-    result << psys::SubPluginInfo { "error_creator", "QObject", "" };
+//    result << psys::SubPluginInfo { "error_creator", "QObject", "" };
 
     return result;
 }

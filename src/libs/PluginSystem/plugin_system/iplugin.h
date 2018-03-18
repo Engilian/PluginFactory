@@ -27,6 +27,11 @@ public:
 public: // Plagin info
 
     ///
+    /// \brief Plugin id
+    ///
+    QString id () const;
+
+    ///
     /// \brief Plagin name
     /// \return string name
     ///
@@ -36,7 +41,7 @@ public: // Plagin info
     /// \brief Way to logo
     /// \return way to the logo picture
     ///
-    virtual QString logo() const = 0;
+    virtual QString logo() const;
 
     ///
     /// \brief Brief information about plugin
@@ -50,7 +55,7 @@ public: // Plagin info
     /// \details Use the text of the html page
     /// \return html string
     ///
-    virtual QString detailedInfo() const = 0;
+    virtual QString detailedInfo() const;
 
     ///
     /// \brief Author plugin

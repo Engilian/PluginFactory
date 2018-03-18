@@ -1,6 +1,9 @@
 #ifndef PFACTORY_PLUGIN_CONTROLLER_PRIVATE_H
 #define PFACTORY_PLUGIN_CONTROLLER_PRIVATE_H
 
+#include <QMap>
+#include <QMultiMap>
+
 #include "pfactory/plugin_interfaces/ipfactory_plugin_controller.h"
 #include <plugin_system/loader/plugin_loader.h>
 
@@ -19,18 +22,19 @@ public:
     QString pluginsDirectory() const;
 public:
     QList<psys::SubPlugin> creators( const QString &interface ) const;
-    QMap<QString, QString> defaultInterfaces() const;
+    psys::PluginInfo pluginInfo( psys::SubPlugin creator ) const;
 public:
     QList<psys::Plugin> plugins() const;
+    QList<psys::PluginInfo> pluginsInfo() const;
 protected:
     void _loadPlugins();
+    bool _containsSubPlugin( const QString &pluginId, const psys::SubPluginInfo &info ) const;
 private:
     PFactoryPluginController    _controller;
 private:
-    psys::PluginLoader         _loader;
+    psys::PluginLoader          _loader;
 private:
-    QList<psys::Plugin>        _plugins;
-    QList<psys::SubPlugin>     _creators;
+    QMultiMap<QString, psys::SubPlugin> _creators;
 };
 
 }

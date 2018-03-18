@@ -32,24 +32,25 @@ public:
     ///
     void setLoader( IPluginLoader *loader );
 public:
-    QString pluginDirPath() const;
-    void setPluginDirPath( const QString &path );
+    QString pluginDirPath() const override;
+    void setPluginDirPath( const QString &path ) override;
 public:
-    bool isRecursiveLoad() const;
-    void setRecursiveLoad( bool enable );
+    bool isRecursiveLoad() const override;
+    void setRecursiveLoad( bool enable ) override;
 public:
-    QList<std::pair<Plugin, QString>> allPluginsList() const;
+    QList<std::pair<Plugin, QString>> allPluginsList() const override;
 public:
-    bool loadPlugin( const QString &pluginPath );
-    QList<std::pair<QString, bool>> loadPluginList(
-            QList<QString> pathes
-            );
-    QList<Plugin> loadedPlugins() const;
-    Plugin loadedPlugin( const QString &id ) const;
-    bool isLoadedPlugin( const QString &id ) const;
+    void loadAllPlugins() override;
+    bool loadPlugin( const QString &pluginPath ) override;
+    QList<std::pair<QString, bool>> loadPluginList( QList<QString> pathes ) override;
+    QList<Plugin> loadedPlugins() const override;
+    Plugin loadedPlugin( const QString &id ) const override;
+    QList<PluginInfo> loadedPluginsInfo() const override;
+    PluginInfo loadedPluginInfo( const QString &id ) const override;
+    bool isLoadedPlugin( const QString &id ) const override;
 public:
-    void freeLoadedPlugins();
-    void freePlugin( const QString &pluginId );
+    void freeLoadedPlugins() override;
+    void freePlugin( const QString &pluginId ) override;
 
 };
 

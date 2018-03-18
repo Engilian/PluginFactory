@@ -17,8 +17,8 @@ public:
         IObjectCreator<Interface>( info ) {}
     ~ObjectCreator(){}
 public:
-    virtual Interface *create() const {
-
+    virtual Interface *create() const
+    {
         return new Obj();
     }
 };

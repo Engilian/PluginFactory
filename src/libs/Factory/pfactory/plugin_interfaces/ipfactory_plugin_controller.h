@@ -4,6 +4,7 @@
 #include <QMap>
 
 #include <plugin_system/iplugin.h>
+#include <plugin_system/plugin_info.h>
 #include <plugin_system/isub_plugin.h>
 #include <factory_plugin/iobject_creator.h>
 
@@ -50,15 +51,21 @@ public:
     virtual QList<psys::SubPlugin> creators( const QString &interface ) const = 0;
 
     ///
-    /// \brief defaultsInterfaces
-    /// \return list default interfaces <Interface id, Class id >
+    /// \brief Get information about the parent plugin
+    /// \param creator sub plugin
+    /// \return parent plugin info
     ///
-    virtual QMap<QString, QString> defaultInterfaces() const = 0;
+    virtual psys::PluginInfo pluginInfo( psys::SubPlugin creator ) const = 0;
 public:
     ///
     /// \brief List of loaded plugins
     ///
     virtual QList<psys::Plugin> plugins() const = 0;
+
+    ///
+    /// \brief List info of loaded plugins
+    ///
+    virtual QList<psys::PluginInfo> pluginsInfo() const = 0;
 };
 
 }

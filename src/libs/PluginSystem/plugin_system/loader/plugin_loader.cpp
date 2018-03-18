@@ -51,6 +51,11 @@ QList<std::pair<Plugin, QString> > PluginLoader::allPluginsList() const
     return _d->allPluginsList();
 }
 
+void PluginLoader::loadAllPlugins()
+{
+    return _d->loadAllPlugins ();
+}
+
 bool PluginLoader::loadPlugin(const QString &pluginPath)
 {
     return _d->loadPlugin( pluginPath );
@@ -70,6 +75,16 @@ QList<Plugin> PluginLoader::loadedPlugins() const
 Plugin PluginLoader::loadedPlugin(const QString &id) const
 {
     return _d->loadedPlugin( id );
+}
+
+QList<PluginInfo> PluginLoader::loadedPluginsInfo() const
+{
+    return _d->loadedPluginsInfo ();
+}
+
+PluginInfo PluginLoader::loadedPluginInfo(const QString &id) const
+{
+    return _d->loadedPluginInfo ( id );
 }
 
 bool PluginLoader::isLoadedPlugin(const QString &id) const

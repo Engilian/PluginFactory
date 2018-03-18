@@ -32,7 +32,8 @@ public:
     /// \param args argumets
     /// \return object
     ///
-    virtual Interface *create() const {
+    virtual Interface *create() const
+    {
 
         throw( QString( "Not correct creator " )
                 .append ( TO_STRING( this ) )

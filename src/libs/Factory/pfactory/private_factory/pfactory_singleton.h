@@ -22,8 +22,8 @@ public:
     ///
     /// \brief Global instance
     ///
-    static T *instance() {
-
+    static T *instance()
+    {
         _d = _d ? _d : new T();
         return _d;
     }
@@ -31,15 +31,16 @@ public:
     ///
     /// \brief Global instance
     ///
-    static T *inst() {
+    static T *inst()
+    {
         return instance ();
     }
 
     ///
     /// \brief Free global instance
     ///
-    static void destroy() {
-
+    static void destroy()
+    {
         if ( _d ) delete _d;
         _d = nullptr;
     }
