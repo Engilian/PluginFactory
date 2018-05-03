@@ -12,7 +12,7 @@ namespace  {
 
 #ifndef QT_CRYPTOGRAPHICHASH_ONLY_SHA1
 #define DEFAULT_UID_ALGORITM QCryptographicHash::Algorithm::Md5
-#elif
+#else
 #define DEFAULT_UID_ALGORITM QCryptographicHash::Algorithm::Sha1
 #endif
 
