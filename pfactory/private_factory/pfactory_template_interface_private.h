@@ -1,6 +1,4 @@
-#ifndef PFACTORY_TEMPLATE_INTERFACE_PRIVATE_H
-#define PFACTORY_TEMPLATE_INTERFACE_PRIVATE_H
-
+#pragma once
 #include "pfactory_interface_private.h"
 #include <factory_plugin/iobject_creator.h>
 #include "pfactory/error_policy/pfactory_ignore_error_policy.h"
@@ -33,7 +31,3 @@ protected:
 };
 
 }
-
-
-
-#endif // PFACTORY_TEMPLATE_INTERFACE_PRIVATE_H

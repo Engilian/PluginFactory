@@ -1,6 +1,4 @@
-#ifndef PFACTORY_PRIVATE_H
-#define PFACTORY_PRIVATE_H
-
+#pragma once
 #include <QMap>
 #include <memory>
 
@@ -490,7 +488,3 @@ private:
 };
 
 }
-
-
-
-#endif // PFACTORY_PRIVATE_H

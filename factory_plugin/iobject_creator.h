@@ -1,6 +1,4 @@
-#ifndef IOBJECT_CREATOR_H
-#define IOBJECT_CREATOR_H
-
+#pragma once
 #include <typeinfo>
 
 #include <plugin_system/isub_plugin.h>
@@ -50,5 +48,3 @@ using ObjCreator = std::shared_ptr<IObjectCreator<Interface>>;
 
 #undef FACTORY_CREATOR
 #undef TO_STRING
-
-#endif // IOBJECT_CREATOR_H

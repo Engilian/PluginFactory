@@ -1,6 +1,4 @@
-#ifndef FACTORY_PLUGIN_LOADER_H
-#define FACTORY_PLUGIN_LOADER_H
-
+#pragma once
 #include "iplugin_loader.h"
 
 namespace psys {
@@ -55,7 +53,3 @@ public:
 };
 
 }
-
-
-
-#endif // FACTORY_PLUGIN_LOADER_H

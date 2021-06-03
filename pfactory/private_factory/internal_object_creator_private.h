@@ -1,6 +1,4 @@
-#ifndef INTERNAL_OBJECT_CREATOR_PRIVATE_H
-#define INTERNAL_OBJECT_CREATOR_PRIVATE_H
-
+#pragma once
 #include <factory_plugin/iobject_creator.h>
 
 namespace pf {
@@ -26,5 +24,3 @@ public:
 };
 
 }
-
-#endif // INTERNAL_OBJECT_CREATOR_PRIVATE_H

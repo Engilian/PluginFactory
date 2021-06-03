@@ -1,6 +1,4 @@
-#ifndef PFACTORY_H
-#define PFACTORY_H
-
+#pragma once
 #include "private_factory/pfactory_private.h"
 #include "private_factory/pfactory_singleton.h"
 #include "error_policy/pfactory_ignore_error_policy.h"
@@ -8,7 +6,8 @@
 
 #define pfactory pf
 
-namespace pf {
+namespace pf
+{
 
 template<template<class> class ErrorPolicy >
 ///
@@ -48,7 +47,4 @@ using PFactory      = Factory;
 using PFactoryExp   = FactoryExp;
 }
 
-
 #undef TYPE_NAME
-
-#endif // PFACTORY_H

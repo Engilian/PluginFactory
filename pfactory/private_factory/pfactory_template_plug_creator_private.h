@@ -1,6 +1,4 @@
-#ifndef PFACTORY_TEMPLATE_PLUG_CREATOR_PRIVATE_H
-#define PFACTORY_TEMPLATE_PLUG_CREATOR_PRIVATE_H
-
+#pragma once
 #include "pfactory_template_interface_private.h"
 #include <factory_plugin/iobject_creator.h>
 
@@ -54,7 +52,3 @@ private:
 };
 
 }
-
-
-
-#endif // PFACTORY_TEMPLATE_PLUG_CREATOR_PRIVATE_H

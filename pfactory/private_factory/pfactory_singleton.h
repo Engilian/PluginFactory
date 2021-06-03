@@ -1,6 +1,4 @@
-#ifndef PLUGIN_FACTORY_SINGLETON_H
-#define PLUGIN_FACTORY_SINGLETON_H
-
+#pragma once
 #include <QString>
 #include <typeinfo>
 
@@ -51,7 +49,3 @@ template<class T>
 T *PFactorySingleton<T>::_d = nullptr;
 
 }
-
-
-
-#endif // PLUGIN_FACTORY_SINGLETON_H

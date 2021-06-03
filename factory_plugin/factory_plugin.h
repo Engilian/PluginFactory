@@ -1,5 +1,4 @@
-#ifndef FACTORY_PLUGIN_H
-#define FACTORY_PLUGIN_H
+#pragma once
 
 #include <QMap>
 #include <plugin_system/iplugin.h>
@@ -22,9 +21,7 @@ public:
     template<class Interface, class Obj>
     bool regCreator( const psys::SubPluginInfo &info )
     {
-
         if ( creators.contains ( info.id ) ) {
-
             return false;
         }
 
@@ -35,15 +32,9 @@ public:
     template<class Interface, class Obj>
     bool regCreator( const QString &id, const QString &interface, const QString &info = 0 )
     {
-
         psys::SubPluginInfo pInfo ( id, interface, info );
-
         return regCreator<Interface, Obj>( pInfo );
     }
 };
 
 }
-
-
-
-#endif // FACTORY_PLUGIN_H

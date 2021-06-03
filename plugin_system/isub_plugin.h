@@ -1,6 +1,4 @@
-#ifndef ISUB_PLUGIN_H
-#define ISUB_PLUGIN_H
-
+#pragma once
 #include <QString>
 #include <QMetaClassInfo>
 #include <memory>
@@ -35,5 +33,3 @@ public:
 };
 
 }
-
-#endif // ISUB_PLUGIN_H

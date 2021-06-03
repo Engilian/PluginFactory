@@ -1,6 +1,4 @@
-#ifndef PFACTORY_PLUGIN_CONTROLLER_PRIVATE_H
-#define PFACTORY_PLUGIN_CONTROLLER_PRIVATE_H
-
+#pragma once
 #include <QMap>
 #include <QMultiMap>
 
@@ -38,5 +36,3 @@ private:
 };
 
 }
-
-#endif // PFACTORY_PLUGIN_CONTROLLER_PRIVATE_H

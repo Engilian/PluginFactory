@@ -1,6 +1,4 @@
-#ifndef FACTORY_PLUGIN_LOADER_PRIVATE_H
-#define FACTORY_PLUGIN_LOADER_PRIVATE_H
-
+#pragma once
 #include <QHash>
 #include <plugin_system/loader/iplugin_loader.h>
 
@@ -66,7 +64,3 @@ private:
 };
 
 }
-
-
-
-#endif // FACTORY_PLUGIN_LOADER_PRIVATE_H

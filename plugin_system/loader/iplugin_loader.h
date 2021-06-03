@@ -1,6 +1,4 @@
-#ifndef IFACTORY_PLUGIN_LOADER_H
-#define IFACTORY_PLUGIN_LOADER_H
-
+#pragma once
 #include <plugin_system/iplugin.h>
 #include <plugin_system/plugin_info.h>
 

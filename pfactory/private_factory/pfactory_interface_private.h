@@ -1,6 +1,4 @@
-#ifndef PFACTORY_INTERFACE_PRIVATE_H
-#define PFACTORY_INTERFACE_PRIVATE_H
-
+#pragma once
 #include <QString>
 
 namespace pf {
@@ -20,7 +18,3 @@ public:
 };
 
 }
-
-
-
-#endif // PFACTORY_INTERFACE_PRIVATE_H

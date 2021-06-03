@@ -107,47 +107,19 @@ plugins.pri
 At the moment, the library connection is not very convenient. In the future it will be corrected.
 ```qmake
 
-#   Factory
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../libs/Factory/bin/ -lFactory
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../libs/Factory/bin/ -lFactory
-else:unix: LIBS += -L$$OUT_PWD/../../libs/Factory/bin/ -lFactory
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/external/PluginFactory/release/ -lPluginFactory
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/external/PluginFactory/debug/ -lPluginFactory
+else:unix: LIBS += -L$$OUT_PWD/external/PluginFactory/ -lPluginFactory
 
-INCLUDEPATH += $$PWD/../../libs/Factory
-DEPENDPATH += $$PWD/../../libs/Factory
+INCLUDEPATH += $$PWD/external/PluginFactory
+DEPENDPATH += $$PWD/external/PluginFactory
 
-win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/Factory/bin/libFactory.a
-else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/Factory/bin/libFactory.a
-else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/Factory/bin/Factory.lib
-else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/Factory/bin/Factory.lib
-else:unix: PRE_TARGETDEPS += $$OUT_PWD/../../libs/Factory/bin/libFactory.a
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/external/PluginFactory/release/libPluginFactory.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/external/PluginFactory/debug/libPluginFactory.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/external/PluginFactory/release/PluginFactory.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/external/PluginFactory/debug/PluginFactory.lib
+else:unix: PRE_TARGETDEPS += $$OUT_PWD/external/PluginFactory/libPluginFactory.a
 
-#   Plugin for factory
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../libs/FactoryPlugin/bin/ -lFactoryPlugin
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../libs/FactoryPlugin/bin/ -lFactoryPlugin
-else:unix: LIBS += -L$$OUT_PWD/../../libs/FactoryPlugin/bin/ -lFactoryPlugin
-
-INCLUDEPATH += $$PWD/../../libs/FactoryPlugin
-DEPENDPATH += $$PWD/../../libs/FactoryPlugin
-
-win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/FactoryPlugin/bin/libFactoryPlugin.a
-else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/FactoryPlugin/bin/libFactoryPlugin.a
-else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/FactoryPlugin/bin/FactoryPlugin.lib
-else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/FactoryPlugin/bin/FactoryPlugin.lib
-else:unix: PRE_TARGETDEPS += $$OUT_PWD/../../libs/FactoryPlugin/bin/libFactoryPlugin.a
-
-#   Plugin system
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../libs/PluginSystem/bin/ -lPluginSystem
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../libs/PluginSystem/bin/ -lPluginSystem
-else:unix: LIBS += -L$$OUT_PWD/../../libs/PluginSystem/bin/ -lPluginSystem
-
-INCLUDEPATH += $$PWD/../../libs/PluginSystem
-DEPENDPATH += $$PWD/../../libs/PluginSystem
-
-win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/PluginSystem/bin/libPluginSystem.a
-else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/PluginSystem/bin/libPluginSystem.a
-else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/PluginSystem/bin/PluginSystem.lib
-else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../../libs/PluginSystem/bin/PluginSystem.lib
-else:unix: PRE_TARGETDEPS += $$OUT_PWD/../../libs/PluginSystem/bin/libPluginSystem.a
 ```
 
 Header file for the factory plugin test_plugin.h
@@ -155,7 +127,7 @@ Header file for the factory plugin test_plugin.h
 
 ```c++
 #include <QObject>
-#include <factory_plugin/factory_plugin.h>
+#include <FactoryPlugin>
 
 class TestPluginFactoryPlugin: public QObject, public pf::FactoryPlugin
 {

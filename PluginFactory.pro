@@ -7,7 +7,7 @@
 
 QT          -= gui
 
-TARGET      = Factory
+TARGET      = PluginFactory
 TEMPLATE    = lib
 CONFIG      += staticlib
 CONFIG      += c++11
@@ -53,3 +53,7 @@ SOURCES += \
     plugin_system/loader/private/plugin_loader_private.cpp \
     plugin_system/plugin_info.cpp \
     plugin_system/sub_plugin_info.cpp
+
+DISTFILES += \
+    FactoryPlugin \
+    PluginFactory

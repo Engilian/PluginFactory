@@ -1,6 +1,4 @@
-#ifndef IPFACTORY_PLUGIN_H
-#define IPFACTORY_PLUGIN_H
-
+#pragma once
 #include <QString>
 #include <QObject>
 #include <memory>
@@ -106,6 +104,3 @@ public:
 }
 
 Q_DECLARE_INTERFACE( psys::IPlugin, FACTORY_PLUGIN_VALID_STRING );
-
-
-#endif // IPFACTORY_PLUGIN_H

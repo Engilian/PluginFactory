@@ -1,6 +1,4 @@
-#ifndef PFACTORY_EXCEPTION_H
-#define PFACTORY_EXCEPTION_H
-
+#pragma once
 #include <QString>
 #include <memory>
 
@@ -35,7 +33,3 @@ private:
 };
 
 }
-
-
-
-#endif // PFACTORY_EXCEPTION_H

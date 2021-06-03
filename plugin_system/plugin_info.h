@@ -1,6 +1,4 @@
-#ifndef PLUGIN_INFO_H
-#define PLUGIN_INFO_H
-
+#pragma once
 #include <memory>
 #include <QString>
 
@@ -29,5 +27,3 @@ public:
 };
 
 }
-
-#endif // PLUGIN_INFO_H

@@ -1,6 +1,4 @@
-#ifndef ICREATOR_FACTORY_PLUGIN_LOADER_H
-#define ICREATOR_FACTORY_PLUGIN_LOADER_H
-
+#pragma once
 #include <plugin_system/loader/iplugin_loader.h>
 #include <factory_plugin/iobject_creator.h>
 
@@ -26,7 +24,3 @@ public:
 };
 
 }
-
-
-
-#endif // ICREATOR_FACTORY_PLUGIN_LOADER_H

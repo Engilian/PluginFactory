@@ -1,6 +1,4 @@
-#ifndef OBJECT_CREATOR_H
-#define OBJECT_CREATOR_H
-
+#pragma once
 #include "iobject_creator.h"
 
 namespace pf {
@@ -24,7 +22,3 @@ public:
 };
 
 }
-
-
-
-#endif // OBJECT_CREATOR_H

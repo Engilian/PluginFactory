@@ -1,6 +1,4 @@
-#ifndef IPFACTORY_PLUGIN_CONTROLLER_H
-#define IPFACTORY_PLUGIN_CONTROLLER_H
-
+#pragma once
 #include <QMap>
 
 #include <plugin_system/iplugin.h>
@@ -69,5 +67,3 @@ public:
 };
 
 }
-
-#endif // IPFACTORY_PLUGIN_CONTROLLER_H

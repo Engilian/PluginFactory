@@ -1,6 +1,4 @@
-#ifndef PFACTORY_IGNORE_ERROR_POLICY_H
-#define PFACTORY_IGNORE_ERROR_POLICY_H
-
+#pragma once
 #include <QString>
 
 namespace pf {
@@ -37,7 +35,3 @@ public:
 };
 
 }
-
-
-
-#endif // PFACTORY_IGNORE_ERROR_POLICY_H

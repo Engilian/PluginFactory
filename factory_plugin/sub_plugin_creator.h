@@ -1,6 +1,4 @@
-#ifndef SUB_PLUGIN_CREATOR_H
-#define SUB_PLUGIN_CREATOR_H
-
+#pragma once
 #include <plugin_system/isub_plugin.h>
 #include "object_creator.h"
 
@@ -35,7 +33,3 @@ public:
 };
 
 }
-
-
-
-#endif // SUB_PLUGIN_CREATOR_H

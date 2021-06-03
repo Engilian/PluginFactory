@@ -1,6 +1,4 @@
-#ifndef PFACTORY_THROW_EXCEPTION_ERROR_POLICY_H
-#define PFACTORY_THROW_EXCEPTION_ERROR_POLICY_H
-
+#pragma once
 #include "pfactory_exception.h"
 
 namespace pf {
@@ -55,5 +53,3 @@ public:
 };
 
 }
-
-#endif // PFACTORY_THROW_EXCEPTION_ERROR_POLICY_H

@@ -1,6 +1,4 @@
-#ifndef SUB_PLUGIN_INFO_H
-#define SUB_PLUGIN_INFO_H
-
+#pragma once
 #include <QString>
 
 namespace psys {
@@ -45,5 +43,3 @@ struct SubPluginInfo final {
 };
 
 }
-
-#endif // SUB_PLUGIN_INFO_H
