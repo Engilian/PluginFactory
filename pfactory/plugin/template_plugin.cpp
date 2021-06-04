@@ -1,14 +1,14 @@
-#include "factory_plugin.h"
+#include "template_plugin.h"
 using namespace pf;
 using namespace psys;
 
-FactoryPlugin::FactoryPlugin():
-    IPlugin()
+TemplatePlugin::TemplatePlugin()
+  : IPlugin()
 {
 
 }
 
-FactoryPlugin::~FactoryPlugin()
+TemplatePlugin::~TemplatePlugin()
 {
     QList<SubPluginCreator *> list = creators.values ();
     creators.clear ();
@@ -19,7 +19,7 @@ FactoryPlugin::~FactoryPlugin()
 }
 
 
-QList<SubPluginInfo> pf::FactoryPlugin::subPluginInfoList() const
+QList<SubPluginInfo> pf::TemplatePlugin::subPluginInfoList() const
 {
     QList<SubPluginInfo> result;
 
@@ -28,7 +28,7 @@ QList<SubPluginInfo> pf::FactoryPlugin::subPluginInfoList() const
     return result;
 }
 
-ISubPlugin *pf::FactoryPlugin::create(const QString &id) const
+ISubPlugin *pf::TemplatePlugin::create(const QString &id) const
 {
     return creators.contains ( id ) ? creators[ id ]->create(): nullptr;
 }

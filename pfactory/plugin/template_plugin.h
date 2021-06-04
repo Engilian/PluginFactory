@@ -1,25 +1,27 @@
 #pragma once
 
 #include <QMap>
-#include <plugin_system/iplugin.h>
+#include <pfactory/plugin/psys/iplugin.h>
 #include "sub_plugin_creator.h"
 
 
 namespace pf
 {
-class FactoryPlugin: public psys::IPlugin
+class TemplatePlugin
+    : public psys::IPlugin
 {
     QMap<QString, SubPluginCreator *> creators;
 protected:
-    FactoryPlugin();
+    TemplatePlugin();
 public:
-    virtual ~FactoryPlugin();
+    virtual ~TemplatePlugin();
 public:
     virtual QList<psys::SubPluginInfo> subPluginInfoList() const Q_DECL_OVERRIDE;
     virtual psys::ISubPlugin *create(const QString &id) const Q_DECL_OVERRIDE;
-public:
+
+protected:
     template<class Interface, class Obj>
-    bool regCreator( const psys::SubPluginInfo &info )
+    bool regCreator(const psys::SubPluginInfo &info)
     {
         if ( creators.contains ( info.id ) ) {
             return false;
@@ -30,9 +32,9 @@ public:
     }
 
     template<class Interface, class Obj>
-    bool regCreator( const QString &id, const QString &interface, const QString &info = 0 )
+    bool regCreator( const QString &id, const QString &interface)
     {
-        psys::SubPluginInfo pInfo ( id, interface, info );
+        psys::SubPluginInfo pInfo ( id, interface );
         return regCreator<Interface, Obj>( pInfo );
     }
 };

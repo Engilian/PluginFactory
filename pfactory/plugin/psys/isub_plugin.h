@@ -7,29 +7,27 @@
 
 namespace psys {
 
-class ISubPlugin;
-using SubPlugin = std::shared_ptr<ISubPlugin>;
+  class ISubPlugin;
+  using SubPlugin = std::shared_ptr<ISubPlugin>;
 
-
-
-///
-/// \brief The ISubPlugin class
-///
-class ISubPlugin
-{
+  ///
+  /// \brief The ISubPlugin class
+  ///
+  class ISubPlugin
+  {
     ///
     /// \brief Information about the sub plugin
     ///
     SubPluginInfo   _subPluginInfo;
-protected:
+  protected:
     ISubPlugin( SubPluginInfo info );
-public:
+  public:
     virtual ~ISubPlugin();
-public:
+  public:
     ///
     /// \brief Information about the sub plugin
     ///
     SubPluginInfo subPluginInfo() const;
-};
+  };
 
 }

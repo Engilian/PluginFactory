@@ -1,10 +1,10 @@
 #pragma once
 #include <QMap>
 
-#include <plugin_system/iplugin.h>
-#include <plugin_system/plugin_info.h>
-#include <plugin_system/isub_plugin.h>
-#include <factory_plugin/iobject_creator.h>
+#include <pfactory/plugin/psys/iplugin.h>
+#include <pfactory/plugin/psys/plugin_data.h>
+#include <pfactory/plugin/psys/isub_plugin.h>
+#include <pfactory/plugin/iobject_creator.h>
 
 namespace pf {
 
@@ -22,10 +22,7 @@ protected:
     /// \param id plugin id
     /// \param desc plugin description
     ///
-    IPFactoryPluginController(
-            const QString &id,
-            const QString &desc
-            );
+    IPFactoryPluginController(const QString &id);
 public:
     virtual ~IPFactoryPluginController();
 public:
@@ -40,30 +37,25 @@ public:
     /// \return path new path to the folder
     ///
     virtual QString pluginsDirectory() const = 0;
-public:
+public:    
+    ///
+    /// \brief Get information about the parent plugin
+    /// \param creator sub plugin
+    /// \return parent plugin info
+    ///
+    virtual psys::PluginData plugin( psys::SubPlugin creator ) const = 0;
+
     ///
     /// \brief Get list creators sub pl
     /// \param interface string interface
     /// \return list creator subPlugin
     ///
     virtual QList<psys::SubPlugin> creators( const QString &interface ) const = 0;
-
-    ///
-    /// \brief Get information about the parent plugin
-    /// \param creator sub plugin
-    /// \return parent plugin info
-    ///
-    virtual psys::PluginInfo pluginInfo( psys::SubPlugin creator ) const = 0;
 public:
     ///
     /// \brief List of loaded plugins
     ///
-    virtual QList<psys::Plugin> plugins() const = 0;
-
-    ///
-    /// \brief List info of loaded plugins
-    ///
-    virtual QList<psys::PluginInfo> pluginsInfo() const = 0;
+    virtual QList<psys::PluginData> plugins() const = 0;
 };
 
 }

@@ -1,5 +1,5 @@
 #pragma once
-#include <plugin_system/isub_plugin.h>
+#include <pfactory/plugin/psys/isub_plugin.h>
 #include "object_creator.h"
 
 namespace pf {

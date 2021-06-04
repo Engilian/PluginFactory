@@ -42,9 +42,6 @@ using Factory = PBaseFactory<PFactoryIgnoreErrorPolicy>;
 ///  generate exceptions
 ///
 using FactoryExp = PBaseFactory<PFactoryThrowExceptionErrorPolicy>;
-
-using PFactory      = Factory;
-using PFactoryExp   = FactoryExp;
 }
 
 #undef TYPE_NAME

@@ -1,6 +1,6 @@
 #pragma once
-#include <plugin_system/loader/iplugin_loader.h>
-#include <factory_plugin/iobject_creator.h>
+#include <pfactory/plugin/psys/loader/iplugin_loader.h>
+#include <pfactory/plugin/iobject_creator.h>
 
 namespace pf {
 

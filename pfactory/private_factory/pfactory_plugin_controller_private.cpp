@@ -5,8 +5,7 @@ using namespace pf;
 #include <QCoreApplication>
 
 PFactoryPluginControllerPrivate::PFactoryPluginControllerPrivate():
-    IPFactoryPluginController( "PFactoryPluginControllerPrivate",
-                               "Default loaded controller" )
+    IPFactoryPluginController( "PFactoryPluginControllerPrivate" )
 {
 
     _loadPlugins ();
@@ -55,32 +54,28 @@ QList<psys::SubPlugin> PFactoryPluginControllerPrivate::creators(const QString &
     return result;
 }
 
-psys::PluginInfo PFactoryPluginControllerPrivate::pluginInfo(psys::SubPlugin creator) const
+psys::PluginData PFactoryPluginControllerPrivate::plugin(psys::SubPlugin creator) const
 {
-    return _loader.loadedPluginInfo ( _creators.key ( creator ) );
+  auto key = _creators.key( creator );
+  for ( auto p: _loader.allPluginsList() )
+    if ( p.uid() == key )
+      return p;
+
+  return psys::PluginData();
 }
 
-QList<psys::Plugin> PFactoryPluginControllerPrivate::plugins() const
+QList<psys::PluginData> PFactoryPluginControllerPrivate::plugins() const
 {
-    if ( _controller ) return _controller->plugins ();
+    if ( _controller ) return _controller->plugins();
 
     return _loader.loadedPlugins ();
-}
-
-QList<psys::PluginInfo> PFactoryPluginControllerPrivate::pluginsInfo() const
-{
-    if ( _controller ) return  _controller->pluginsInfo ();
-
-    return _loader.loadedPluginsInfo ();
 }
 
 void PFactoryPluginControllerPrivate::_loadPlugins()
 {
     _loader.loadAllPlugins ();
 
-
-    for ( auto p: _loader.loadedPluginsInfo () ) {
-
+    for ( auto p: _loader.loadedPlugins() ) {
         for ( const auto &subInfo: p.plugin ()->subPluginInfoList () ) {
 
             if ( subInfo.interfaceId.compare ( subPluginInfo().interfaceId ) == 0 ) {
@@ -100,13 +95,12 @@ void PFactoryPluginControllerPrivate::_loadPlugins()
                 }
             }
 
-            if ( !_containsSubPlugin ( p.plugin ()->id (), subInfo ) ) {
+            if ( !_containsSubPlugin ( p.uid(), subInfo ) ) {
 
                 auto subPlugin = psys::SubPlugin( p.plugin ()->create ( subInfo ) );
 
                 if ( subPlugin ) {
-
-                    _creators.insertMulti ( p.plugin ()->id () , subPlugin );
+                    _creators.insertMulti ( p.uid() , subPlugin );
                 }
                 else {
 

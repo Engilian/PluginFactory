@@ -10,7 +10,7 @@ Headers
 -------
 
 ```c++
-#include <pfactory/pfactory.h>
+#include <pf/Factory>
 ```
 
 Adding an internal implementation of the interface.
@@ -85,7 +85,6 @@ TARGET      = empty_test_plugin
 TEMPLATE    = lib
 CONFIG      += plugin
 CONFIG      += c++11
-DESTDIR     = ../../../bin/plug
 
 DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000
@@ -99,7 +98,7 @@ HEADERS += \
 DISTFILES += \
     TestPlugin.json
 
-include(plugin.pri)
+include(plugins.pri)
 ```
 plugins.pri
 -----------
@@ -127,9 +126,11 @@ Header file for the factory plugin test_plugin.h
 
 ```c++
 #include <QObject>
-#include <FactoryPlugin>
+#include <pf/TemplatePlugin>
 
-class TestPluginFactoryPlugin: public QObject, public pf::FactoryPlugin
+class TestPluginFactoryPlugin final
+    : public QObject
+    , public pf::TemplatePlugin
 {
     Q_OBJECT
     Q_INTERFACES (psys::IPlugin)
@@ -139,14 +140,7 @@ class TestPluginFactoryPlugin: public QObject, public pf::FactoryPlugin
 
 public:
     TestPluginFactoryPlugin(QObject *parent = 0);
-    ~TestPluginFactoryPlugin();
-public:
-    QString name() const;
-    QString logo() const;
-    QString briefInfo() const;
-    QString detailedInfo() const;
-    QString author() const;
-    QString version() const;
+    ~TestPluginFactoryPlugin() override;
 };
 ```
 
@@ -160,59 +154,27 @@ The plug-in implementation file for the factory test_plugin.cpp
 #include <QTcpSocket>
 #include <QNetworkAccessManager>
 
-TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent) :
-    QObject(parent),
-    pf::FactoryPlugin()
+TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent) 
+    : QObject(parent)
+    , pf::TemplatePlugin()
 {
 
     // Adding the QObject interface implementation -> QTcpServer.
     regCreator<QObject, QTcpServer>( psys::SubPluginInfo
-    { "QTcpServer", "QObject", "QTcpServer class" } );
+    { "QTcpServer", "QObject" } );
 
     // Adding the QObject interface implementation -> QTcpSocket.
     regCreator<QObject, QTcpSocket>( psys::SubPluginInfo
-    { "QTcpSocket", "QObject", "QTcpSocket class" } );
+    { "QTcpSocket", "QObject" } );
 
     // Adding the QObject interface implementation -> QNetworkAccessManager.
     regCreator<QObject, QNetworkAccessManager>( psys::SubPluginInfo
-    { "QNetworkAccessManager", "QObject", "QNetworkAccessManager class" } );
+    { "QNetworkAccessManager", "QObject" } );
 }
 
 TestPluginFactoryPlugin::~TestPluginFactoryPlugin()
 {
 
-}
-
-QString TestPluginFactoryPlugin::name() const
-{
-    return "PFactory plugin for unit test";
-}
-
-QString TestPluginFactoryPlugin::logo() const
-{
-    return "";
-}
-
-QString TestPluginFactoryPlugin::briefInfo() const
-{
-    return "Plug-in for testing the serviceability of the factory";
-}
-
-QString TestPluginFactoryPlugin::detailedInfo() const
-{
-    return "Plugin for testing the integrity of the factory. It is not"
-           " recommended that this plug-in be included in the delivery of "
-           "ready-made applications.";
-}
-
-QString TestPluginFactoryPlugin::author() const
-{
-    return "engilian@gmail.com";
-}
-
-QString TestPluginFactoryPlugin::version() const
-{
-    return "0.002";
 }
 
 #if QT_VERSION < 0x050000
