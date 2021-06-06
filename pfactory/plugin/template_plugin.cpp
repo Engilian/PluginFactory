@@ -23,7 +23,8 @@ QList<SubPluginInfo> pf::TemplatePlugin::subPluginInfoList() const
 {
     QList<SubPluginInfo> result;
 
-    for ( auto *s: creators )  result << s->info;
+    for ( auto *s: creators )
+      result << s->info;
 
     return result;
 }

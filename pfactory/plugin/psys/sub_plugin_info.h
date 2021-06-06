@@ -12,12 +12,12 @@ namespace psys
     ////
     /// \brief Sub plugin id
     ///
-    const QString id;
+    QString id;
 
     ///
     /// \brief ID of the implementing interface
     ///
-    const QString interfaceId;
+    QString interfaceId;
 
     // constructs
     SubPluginInfo();

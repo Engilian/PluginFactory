@@ -102,7 +102,7 @@ public: // Add creators
     /// \brief Add the interface to the factory
     /// \param interface interface name
     ///
-    void add( const QString &interface = 0 )
+    void add(const QString &interface = 0)
     {
         if ( !interface.isEmpty () ) {
             _interfaces[ QString( typeid (Interface).name () ) ] = interface;
