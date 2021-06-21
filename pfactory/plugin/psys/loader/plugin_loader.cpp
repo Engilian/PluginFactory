@@ -3,9 +3,9 @@ using namespace psys;
 
 #include "plugin_loader_private.h"
 
-PluginLoader::PluginLoader(psys::IPluginLoader *loader):
-  IPluginLoader(),
-  _d( loader )
+PluginLoader::PluginLoader(psys::IPluginLoader *loader)
+  : IPluginLoader()
+  , _d( loader )
 {
   if ( !_d ) loadDefaultLoader();
 }

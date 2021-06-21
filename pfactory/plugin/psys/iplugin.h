@@ -25,14 +25,6 @@ namespace psys
 
   public:
     ///
-    /// \brief Compare versions
-    /// \param v versionPlugin
-    /// \return if the version of the plugin is greater than the current true,
-    ///  otherwise it is false
-    ///
-    virtual bool versionComparer( const QString &v ) const;
-  public:
-    ///
     /// \brief List of information implemented plugins
     /// \return list information
     ///

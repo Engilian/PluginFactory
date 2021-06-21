@@ -10,26 +10,26 @@ TemplatePlugin::TemplatePlugin()
 
 TemplatePlugin::~TemplatePlugin()
 {
-    QList<SubPluginCreator *> list = creators.values ();
-    creators.clear ();
+  QList<SubPluginCreator *> list = creators.values ();
+  creators.clear ();
 
-    while ( !list.isEmpty () ) {
-        delete list.takeFirst ();
-    }
+  while ( !list.isEmpty () ) {
+    delete list.takeFirst ();
+  }
 }
 
 
 QList<SubPluginInfo> pf::TemplatePlugin::subPluginInfoList() const
 {
-    QList<SubPluginInfo> result;
+  QList<SubPluginInfo> result;
 
-    for ( auto *s: creators )
-      result << s->info;
+  for ( auto *s: creators )
+    result << s->info;
 
-    return result;
+  return result;
 }
 
 ISubPlugin *pf::TemplatePlugin::create(const QString &id) const
 {
-    return creators.contains ( id ) ? creators[ id ]->create(): nullptr;
+  return creators.contains ( id ) ? creators[ id ]->create(): nullptr;
 }

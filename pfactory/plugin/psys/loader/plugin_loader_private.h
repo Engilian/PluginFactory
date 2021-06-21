@@ -40,14 +40,14 @@ namespace psys
     /// \param recursive on/off recursive load
     /// \return plugins path
     ///
-    QStringList _findPluginFiles( const QString &dirPath, bool recursive ) const;
+    QStringList _findPluginFiles(const QString &dirPath, bool recursive) const;
 
     ///
     /// \brief Load plugin
     /// \param path plugin path
     /// \return if the pointer to the plug-in is successful, otherwise empty
     ///
-    LoadResult _loadPlugin( const QString &path ) const;
+    LoadResult _loadPlugin(const QString &path) const;
   private:
     ///
     /// \brief Path for plugin directory

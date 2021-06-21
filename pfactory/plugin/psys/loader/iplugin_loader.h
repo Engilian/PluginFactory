@@ -32,7 +32,7 @@ namespace psys
     /// \brief Set the path to the folder with plugins
     /// \param path path to the folder with plugins
     ///
-    virtual void setPluginDirPath( const QString &path ) = 0;
+    virtual void setPluginDirPath(const QString &path) = 0;
   public:
     ///
     /// \brief Recursive loading of a package with plugins
@@ -45,7 +45,7 @@ namespace psys
     ///  pluginssetRecursiveLoad
     /// \param enable on/off recursive load
     ///
-    virtual void setRecursiveLoad( bool enable ) = 0;
+    virtual void setRecursiveLoad(bool enable) = 0;
   public:
 
     ///

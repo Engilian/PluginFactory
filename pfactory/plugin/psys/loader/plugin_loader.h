@@ -6,7 +6,8 @@ namespace psys {
   ///
   /// \brief Plugin download interface
   ///
-  class PluginLoader: public IPluginLoader
+  class PluginLoader
+      : public IPluginLoader
   {
     // Shared pointer for instance plugin loader
     using _FPluginLoader = std::shared_ptr<IPluginLoader>;
@@ -16,7 +17,7 @@ namespace psys {
     /// \brief Constructor
     /// \param Implementation of the interface for loading plug-ins.
     ///
-    PluginLoader( IPluginLoader *loader = nullptr );
+    PluginLoader(IPluginLoader *loader = nullptr);
     virtual ~PluginLoader();
   public:
     ///
@@ -28,13 +29,13 @@ namespace psys {
     /// \brief Set plugin loader class
     /// \param loader plugin loader
     ///
-    void setLoader( IPluginLoader *loader );
+    void setLoader(IPluginLoader *loader);
   public:
     QString pluginDirPath() const override;
-    void setPluginDirPath( const QString &path ) override;
+    void setPluginDirPath(const QString &path) override;
   public:
     bool isRecursiveLoad() const override;
-    void setRecursiveLoad( bool enable ) override;
+    void setRecursiveLoad(bool enable) override;
   public:
     QList<PluginData> allPluginsList() const override;
   public:
@@ -46,5 +47,4 @@ namespace psys {
     void freeLoadedPlugins() override;
     void freePlugin( const QString &pluginId ) override;
   };
-
 }

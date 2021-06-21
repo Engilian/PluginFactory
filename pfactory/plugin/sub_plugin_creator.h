@@ -2,34 +2,39 @@
 #include <pfactory/plugin/psys/isub_plugin.h>
 #include "object_creator.h"
 
-namespace pf {
-
-struct SubPluginCreator
+namespace pf
 {
+  struct SubPluginCreator
+  {
     const psys::SubPluginInfo info;
-protected:
+  protected:
     SubPluginCreator( const psys::SubPluginInfo &info );
-public:
+  public:
     virtual ~SubPluginCreator();
-public:
+  public:
     virtual psys::ISubPlugin *create() = 0;
-};
+  };
 
 
-template<class Interface, class Obj>
-class TemplateSubPluginCreator: public SubPluginCreator
-{
-public:
-    TemplateSubPluginCreator( const psys::SubPluginInfo &info ):
-        SubPluginCreator( info )
-    {}
-    ~TemplateSubPluginCreator(){}
-public:
+  template<class Interface, class Obj>
+  class TemplateSubPluginCreator
+      : public SubPluginCreator
+  {
+  public:
+    TemplateSubPluginCreator( const psys::SubPluginInfo &info )
+      : SubPluginCreator( info )
+    {
 
+    }
+    ~TemplateSubPluginCreator()
+    {
+
+    }
+
+  public:
     psys::ISubPlugin *create()
     {
-        return new ObjectCreator<Interface, Obj>( info );
+      return new ObjectCreator<Interface, Obj>( info );
     }
-};
-
+  };
 }

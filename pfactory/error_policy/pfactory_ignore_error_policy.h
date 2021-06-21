@@ -1,18 +1,25 @@
 #pragma once
 #include <QString>
 
-namespace pf {
-
-template <class Base>
-///
-/// \brief Factory error ignoring policy
-///
-class PFactoryIgnoreErrorPolicy
+namespace pf
 {
-public:
-    PFactoryIgnoreErrorPolicy(){}
-    ~PFactoryIgnoreErrorPolicy(){}
-public:
+
+  template <class Base>
+  ///
+  /// \brief Factory error ignoring policy
+  ///
+  class PFactoryIgnoreErrorPolicy
+  {
+  public:
+    PFactoryIgnoreErrorPolicy()
+    {
+
+    }
+    ~PFactoryIgnoreErrorPolicy()
+    {
+
+    }
+  public:
 
     ///
     /// \brief Error creating object
@@ -20,18 +27,23 @@ public:
     ///
     Base * createFailed( const QString &) const
     {
-        return nullptr;
+      return nullptr;
     }
 
     ///
     /// \brief Error removing the type from the factory
     ///
-    void removeFailed( const QString &) const{}
+    void removeFailed( const QString &) const
+    {
+
+    }
 
     ///
     /// \brief Error adding a type to the factory
     ///
-    void duplicateRegistered( const QString &) const {}
-};
+    void duplicateRegistered( const QString &) const
+    {
 
+    }
+  };
 }

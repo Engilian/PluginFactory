@@ -13,8 +13,8 @@ namespace pf {
   class IObjectCreator: public psys::ISubPlugin
   {
   protected:
-    IObjectCreator( const QString &id,
-                    const QString &interface    = TO_STRING( Interface ) )
+    IObjectCreator(const QString &id,
+                   const QString &interface = TO_STRING( Interface ))
       : psys::ISubPlugin( { id, interface } )
     {
 

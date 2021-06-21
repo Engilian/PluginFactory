@@ -6,16 +6,13 @@ using namespace psys;
 #include <QPluginLoader>
 #include <QCoreApplication>
 
-PluginLoaderPrivate::PluginLoaderPrivate():
-  IPluginLoader(),
-  _pluginDirectoryPath(
-    QDir::fromNativeSeparators( QCoreApplication::applicationDirPath() +
-                                "/plug" )
-    ),
-  _isRecursiveLoad( true )
+PluginLoaderPrivate::PluginLoaderPrivate()
+  : IPluginLoader()
+  , _pluginDirectoryPath(
+      QDir::fromNativeSeparators( QCoreApplication::applicationDirPath() + "/plug" ) )
+  , _isRecursiveLoad( true )
 
 {
-
   setPluginDirPath ( _pluginDirectoryPath );
 }
 

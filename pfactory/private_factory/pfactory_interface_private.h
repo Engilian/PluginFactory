@@ -1,20 +1,19 @@
 #pragma once
 #include <QString>
 
-namespace pf {
-
-class PFactoryInterfacePrivate
+namespace pf
 {
-protected:
+  class PFactoryInterfacePrivate
+  {
+  protected:
     QString         _id;
     QString         _interface;
-protected:
-    PFactoryInterfacePrivate( const QString &id, const QString &interface );
-public:
+  protected:
+    PFactoryInterfacePrivate(const QString &id, const QString &interface);
+  public:
     virtual ~PFactoryInterfacePrivate();
-public:
+  public:
     QString id() const;
     QString interface() const;
-};
-
+  };
 }

@@ -22,7 +22,7 @@ namespace psys
     // constructs
     SubPluginInfo();
     SubPluginInfo(const QString &id,
-                   const QString &interface);
+                  const QString &interface);
     SubPluginInfo(const SubPluginInfo &info);
 
     // methods

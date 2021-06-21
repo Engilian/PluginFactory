@@ -5,7 +5,8 @@
 
 #include "sub_plugin_info.h"
 
-namespace psys {
+namespace psys
+{
 
   class ISubPlugin;
   using SubPlugin = std::shared_ptr<ISubPlugin>;

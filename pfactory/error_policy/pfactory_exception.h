@@ -2,34 +2,37 @@
 #include <QString>
 #include <memory>
 
-namespace pf {
-
-///
-/// \brief Plugin factory exception
-///
-class PFactoryException : public std::exception
+namespace pf
 {
-public:
+
+  ///
+  /// \brief Plugin factory exception
+  ///
+  class PFactoryException
+      : public std::exception
+  {
+  public:
     ///
     /// \brief Constructor
     /// \param msg except string
     ///
-    PFactoryException( const std::string & msg ) noexcept;
+    PFactoryException(const std::string & msg) noexcept;
 
     ///
     /// \brief Constructor
     /// \param msg except string
     ///
-    PFactoryException( const QString &msg ) noexcept;
+    PFactoryException(const QString &msg) noexcept;
 
     virtual ~PFactoryException() noexcept;
-public:
+  public:
     virtual const char* what() const noexcept;
-private:
+
+  private:
     ///
     /// \brief except string
     ///
     std::string     _msg;
-};
+  };
 
 }

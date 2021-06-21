@@ -5,29 +5,35 @@
 
 namespace pf {
 
-template<typename Interface,  template<class> class ErrorPolicy = PFactoryIgnoreErrorPolicy >
-///
-/// \brief Template interface for the creator of objects
-///
-class PFactoryTemplateInterfacePrivate: public PFactoryInterfacePrivate
-{
-protected:
-    PFactoryTemplateInterfacePrivate( const QString &id, const QString &interface ):
-        PFactoryInterfacePrivate ( id, interface ),
-        _policy() {}
-public:
-    virtual ~PFactoryTemplateInterfacePrivate(){}
-public:
+  template<typename Interface,  template<class> class ErrorPolicy = PFactoryIgnoreErrorPolicy >
+  ///
+  /// \brief Template interface for the creator of objects
+  ///
+  class PFactoryTemplateInterfacePrivate: public PFactoryInterfacePrivate
+  {
+  protected:
+    PFactoryTemplateInterfacePrivate(const QString &id, const QString &interface)
+      : PFactoryInterfacePrivate ( id, interface )
+      , _policy()
+    {
+
+    }
+  public:
+    virtual ~PFactoryTemplateInterfacePrivate()
+    {
+
+    }
+  public:
     virtual ErrorPolicy<Interface> policy() const
     {
-        return _policy;
+      return _policy;
     }
-protected:
+  protected:
     ///
     /// \brief Error policy
     ///
     ErrorPolicy<Interface>                      _policy;
 
-};
+  };
 
 }

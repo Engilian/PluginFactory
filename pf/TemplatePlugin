@@ -1,1 +1,1 @@
-#include "pfactory/plugin/factory_plugin.h"
+#include "pfactory/plugin/template_plugin.h"

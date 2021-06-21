@@ -9,39 +9,45 @@
 namespace pf
 {
 
-template<template<class> class ErrorPolicy >
-///
-/// \brief Base factory
-///
-class PBaseFactory: public PFactoryPrivate<ErrorPolicy>,
-        public PFactorySingleton<PBaseFactory<ErrorPolicy >>
-{
-public:
-    PBaseFactory():
-        PFactoryPrivate<ErrorPolicy> (),
-        PFactorySingleton<PBaseFactory<ErrorPolicy> > (){}
-public:
-    virtual ~PBaseFactory(){}
-};
+  template<template<class> class ErrorPolicy >
+  ///
+  /// \brief Base factory
+  ///
+  class PBaseFactory: public PFactoryPrivate<ErrorPolicy>,
+      public PFactorySingleton<PBaseFactory<ErrorPolicy >>
+  {
+  public:
+    PBaseFactory()
+      : PFactoryPrivate<ErrorPolicy> ()
+      , PFactorySingleton<PBaseFactory<ErrorPolicy> > ()
+    {
+
+    }
+  public:
+    virtual ~PBaseFactory()
+    {
+
+    }
+  };
 
 
-/*
+  /*
  * For use are the options below
  */
 
-///
-/// \brief Plugin factory
-/// \details In this implementation, the add, delete, and create
-///  errors are not handled
-///
-using Factory = PBaseFactory<PFactoryIgnoreErrorPolicy>;
+  ///
+  /// \brief Plugin factory
+  /// \details In this implementation, the add, delete, and create
+  ///  errors are not handled
+  ///
+  using Factory = PBaseFactory<PFactoryIgnoreErrorPolicy>;
 
-///
-/// \brief Plugin factory
-/// \details In this implementation, add, delete, and create errors
-///  generate exceptions
-///
-using FactoryExp = PBaseFactory<PFactoryThrowExceptionErrorPolicy>;
+  ///
+  /// \brief Plugin factory
+  /// \details In this implementation, add, delete, and create errors
+  ///  generate exceptions
+  ///
+  using FactoryExp = PBaseFactory<PFactoryThrowExceptionErrorPolicy>;
 }
 
 #undef TYPE_NAME

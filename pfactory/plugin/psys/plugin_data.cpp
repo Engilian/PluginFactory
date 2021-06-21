@@ -8,7 +8,8 @@ using namespace psys;
 
 #include "iplugin.h"
 
-namespace  {
+namespace
+{
 
 #ifndef QT_CRYPTOGRAPHICHASH_ONLY_SHA1
 #define DEFAULT_UID_ALGORITM QCryptographicHash::Algorithm::Md5
@@ -34,30 +35,26 @@ namespace  {
 
 }
 
-PluginData::PluginData():
-  m_uid(),
-  m_path (),
-
-  m_plugin ()
+PluginData::PluginData()
+  : m_uid()
+  , m_path ()
+  , m_plugin ()
 {
 
 }
 
-PluginData::PluginData(std::shared_ptr<IPlugin> plugin, const QString &path):
-  //    _uid ( "{" + plugin->name () + ":[" + fileChecksum ( path ) + "]}" ),
-  m_uid ( fileChecksum ( path ) ),
-  m_path ( path ),
-
-  m_plugin ( plugin )
+PluginData::PluginData(std::shared_ptr<IPlugin> plugin, const QString &path)
+  : m_uid ( fileChecksum ( path ) )
+  , m_path ( path )
+  , m_plugin ( plugin )
 {
 
 }
 
-PluginData::PluginData(const PluginData &info):
-  m_uid ( info.m_uid ),
-  m_path ( info.m_path ),
-
-  m_plugin ( info.m_plugin )
+PluginData::PluginData(const PluginData &info)
+  : m_uid ( info.m_uid )
+  , m_path ( info.m_path )
+  , m_plugin ( info.m_plugin )
 {
 
 }
