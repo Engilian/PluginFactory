@@ -7,7 +7,7 @@
 namespace pf
 {
   class TemplatePlugin
-      : public psys::IPlugin
+      : public pf::IPlugin
   {
     QMap<QString, SubPluginCreator *> creators;
   protected:
@@ -15,12 +15,12 @@ namespace pf
   public:
     virtual ~TemplatePlugin();
   public:
-    virtual QList<psys::SubPluginInfo> subPluginInfoList() const Q_DECL_OVERRIDE;
-    virtual psys::ISubPlugin *create(const QString &id) const Q_DECL_OVERRIDE;
+    virtual QList<pf::SubPluginInfo> subPluginInfoList() const Q_DECL_OVERRIDE;
+    virtual pf::ISubPlugin *create(const QString &id) const Q_DECL_OVERRIDE;
 
   protected:
     template<class Interface, class Obj>
-    bool regCreator(const psys::SubPluginInfo &info)
+    bool regCreator(const pf::SubPluginInfo &info)
     {
       if ( creators.contains ( info.id ) ) {
         return false;
@@ -33,7 +33,7 @@ namespace pf
     template<class Interface, class Obj>
     bool regCreator(const QString &id, const QString &interface)
     {
-      psys::SubPluginInfo pInfo ( id, interface );
+      pf::SubPluginInfo pInfo ( id, interface );
       return regCreator<Interface, Obj>( pInfo );
     }
   };

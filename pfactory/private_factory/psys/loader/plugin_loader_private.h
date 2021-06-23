@@ -2,7 +2,7 @@
 #include <QHash>
 #include "iplugin_loader.h"
 
-namespace psys
+namespace pf
 {
 
   class PluginLoaderPrivate final

@@ -1,5 +1,5 @@
 #include "plugin_data.h"
-using namespace psys;
+using namespace pf;
 
 #include <QDir>
 #include <QFile>

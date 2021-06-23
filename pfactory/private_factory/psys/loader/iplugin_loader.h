@@ -2,7 +2,7 @@
 #include "../iplugin.h"
 #include "../plugin_data.h"
 
-namespace psys
+namespace pf
 {
 
   ///

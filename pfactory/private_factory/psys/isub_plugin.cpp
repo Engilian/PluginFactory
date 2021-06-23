@@ -1,5 +1,5 @@
 #include "isub_plugin.h"
-using namespace psys;
+using namespace pf;
 
 SubPluginInfo::SubPluginInfo()
   : id()

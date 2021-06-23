@@ -15,7 +15,7 @@ namespace pf {
   /// \brief Plug-in Load Controller Interface
   ///
   class IPFactoryPluginController
-      : public psys::ISubPlugin
+      : public pf::ISubPlugin
   {
   protected:
     ///
@@ -44,19 +44,19 @@ namespace pf {
     /// \param creator sub plugin
     /// \return parent plugin info
     ///
-    virtual psys::PluginData plugin(psys::SubPlugin creator) const = 0;
+    virtual pf::PluginData plugin(pf::SubPlugin creator) const = 0;
 
     ///
     /// \brief Get list creators sub pl
     /// \param interface string interface
     /// \return list creator subPlugin
     ///
-    virtual QList<psys::SubPlugin> creators(const QString &interface) const = 0;
+    virtual QList<pf::SubPlugin> creators(const QString &interface) const = 0;
   public:
     ///
     /// \brief List of loaded plugins
     ///
-    virtual QList<psys::PluginData> plugins() const = 0;
+    virtual QList<pf::PluginData> plugins() const = 0;
   };
 
 }

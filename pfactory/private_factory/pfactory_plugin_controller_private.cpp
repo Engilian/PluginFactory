@@ -37,11 +37,11 @@ QString PFactoryPluginControllerPrivate::pluginsDirectory() const
   return _loader.pluginDirPath ();
 }
 
-QList<psys::SubPlugin> PFactoryPluginControllerPrivate::creators(const QString &interface) const
+QList<pf::SubPlugin> PFactoryPluginControllerPrivate::creators(const QString &interface) const
 {
   if ( _controller ) return _controller->creators ( interface );
 
-  QList<psys::SubPlugin> result;
+  QList<pf::SubPlugin> result;
 
   for ( auto sub: _creators.values () ) {
 
@@ -54,17 +54,17 @@ QList<psys::SubPlugin> PFactoryPluginControllerPrivate::creators(const QString &
   return result;
 }
 
-psys::PluginData PFactoryPluginControllerPrivate::plugin(psys::SubPlugin creator) const
+pf::PluginData PFactoryPluginControllerPrivate::plugin(pf::SubPlugin creator) const
 {
   auto key = _creators.key( creator );
   for ( auto p: _loader.allPluginsList() )
     if ( p.uid() == key )
       return p;
 
-  return psys::PluginData();
+  return pf::PluginData();
 }
 
-QList<psys::PluginData> PFactoryPluginControllerPrivate::plugins() const
+QList<pf::PluginData> PFactoryPluginControllerPrivate::plugins() const
 {
   if ( _controller ) return _controller->plugins();
 
@@ -83,7 +83,7 @@ void PFactoryPluginControllerPrivate::_loadPlugins()
         if ( subInfo.id.compare( "Default plugin factory loader" ) == 0 ) {
 
           _controller = std::dynamic_pointer_cast
-              <IPFactoryPluginController>( psys::SubPlugin( p.plugin ()->create ( subInfo ) ) );
+              <IPFactoryPluginController>( pf::SubPlugin( p.plugin ()->create ( subInfo ) ) );
 
           if ( _controller ) {
 
@@ -97,7 +97,7 @@ void PFactoryPluginControllerPrivate::_loadPlugins()
 
       if ( !_containsSubPlugin ( p.uid(), subInfo ) ) {
 
-        auto subPlugin = psys::SubPlugin( p.plugin ()->create ( subInfo ) );
+        auto subPlugin = pf::SubPlugin( p.plugin ()->create ( subInfo ) );
 
         if ( subPlugin ) {
           _creators.insertMulti ( p.uid() , subPlugin );
@@ -114,7 +114,7 @@ void PFactoryPluginControllerPrivate::_loadPlugins()
 
 }
 
-bool PFactoryPluginControllerPrivate::_containsSubPlugin(const QString &pluginId, const psys::SubPluginInfo &info) const
+bool PFactoryPluginControllerPrivate::_containsSubPlugin(const QString &pluginId, const pf::SubPluginInfo &info) const
 {
   for ( auto &i: _creators.values ( pluginId ) ) {
 

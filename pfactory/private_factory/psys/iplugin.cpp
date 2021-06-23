@@ -1,5 +1,5 @@
 #include "iplugin.h"
-using namespace psys;
+using namespace pf;
 
 #include <QVariant>
 

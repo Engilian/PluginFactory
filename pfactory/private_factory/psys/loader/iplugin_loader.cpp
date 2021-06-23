@@ -1,5 +1,5 @@
 #include "iplugin_loader.h"
-using namespace psys;
+using namespace pf;
 
 IPluginLoader::IPluginLoader()
 {

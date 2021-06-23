@@ -11,7 +11,7 @@
 #endif
 
 
-namespace psys
+namespace pf
 {
   class IPlugin;
   using Plugin = std::shared_ptr<IPlugin>;
@@ -52,4 +52,4 @@ namespace psys
 
 }
 
-Q_DECLARE_INTERFACE( psys::IPlugin, FACTORY_PLUGIN_VALID_STRING );
+Q_DECLARE_INTERFACE(pf::IPlugin, FACTORY_PLUGIN_VALID_STRING);

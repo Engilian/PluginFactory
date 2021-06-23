@@ -2,7 +2,7 @@
 using namespace pf;
 
 IPFactoryPluginController::IPFactoryPluginController(const QString &id)
-  : psys::ISubPlugin( { id, "pfactory::IPFactoryPluginController" } )
+  : pf::ISubPlugin( { id, "pfactory::IPFactoryPluginController" } )
 {
 
 }

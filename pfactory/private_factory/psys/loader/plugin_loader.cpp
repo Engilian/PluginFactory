@@ -1,9 +1,9 @@
 #include "plugin_loader.h"
-using namespace psys;
+using namespace pf;
 
 #include "plugin_loader_private.h"
 
-PluginLoader::PluginLoader(psys::IPluginLoader *loader)
+PluginLoader::PluginLoader(pf::IPluginLoader *loader)
   : IPluginLoader()
   , _d( loader )
 {

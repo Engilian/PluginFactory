@@ -3,7 +3,7 @@
 #include <QString>
 #include <QMetaClassInfo>
 
-namespace psys
+namespace pf
 {
   ///
   /// \brief Information about the sub plugin

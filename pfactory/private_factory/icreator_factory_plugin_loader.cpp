@@ -2,7 +2,7 @@
 using namespace pf;
 
 ICreatorFactoryPluginLoader::ICreatorFactoryPluginLoader(const QString &id)
-  : IObjectCreator<psys::IPluginLoader>( id )
+  : IObjectCreator<pf::IPluginLoader>( id )
 {
 
 }
@@ -12,11 +12,11 @@ ICreatorFactoryPluginLoader::~ICreatorFactoryPluginLoader()
 
 }
 
-psys::IPluginLoader *ICreatorFactoryPluginLoader::create() const
+pf::IPluginLoader *ICreatorFactoryPluginLoader::create() const
 {
   throw( QString( "Not correct factory plugin loader creator " )
       .append ( typeid (this).name () )
       .append ( "::" )
-      .append ( typeid ( psys::IPlugin ).name () )
+      .append ( typeid ( pf::IPlugin ).name () )
       );
 }

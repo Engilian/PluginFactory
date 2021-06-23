@@ -6,13 +6,13 @@ namespace pf
 {
   struct SubPluginCreator
   {
-    const psys::SubPluginInfo info;
+    const pf::SubPluginInfo info;
   protected:
-    SubPluginCreator(const psys::SubPluginInfo &info);
+    SubPluginCreator(const pf::SubPluginInfo &info);
   public:
     virtual ~SubPluginCreator();
   public:
-    virtual psys::ISubPlugin *create() = 0;
+    virtual pf::ISubPlugin *create() = 0;
   };
 
 
@@ -21,7 +21,7 @@ namespace pf
       : public SubPluginCreator
   {
   public:
-    TemplateSubPluginCreator( const psys::SubPluginInfo &info )
+    TemplateSubPluginCreator( const pf::SubPluginInfo &info )
       : SubPluginCreator( info )
     {
 
@@ -32,7 +32,7 @@ namespace pf
     }
 
   public:
-    psys::ISubPlugin *create()
+    pf::ISubPlugin *create()
     {
       return new ObjectCreator<Interface, Obj>( info );
     }

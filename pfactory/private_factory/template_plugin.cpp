@@ -1,6 +1,6 @@
 #include "template_plugin.h"
 using namespace pf;
-using namespace psys;
+using namespace pf;
 
 TemplatePlugin::TemplatePlugin()
   : IPlugin()

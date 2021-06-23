@@ -10,17 +10,17 @@ namespace pf
   ///
   /// \brief Object creator
   ///
-  class IObjectCreator: public psys::ISubPlugin
+  class IObjectCreator: public pf::ISubPlugin
   {
   protected:
     IObjectCreator(const QString &id,
                    const QString &interface = TO_STRING( Interface ))
-      : psys::ISubPlugin( { id, interface } )
+      : pf::ISubPlugin( { id, interface } )
     {
 
     }
-    IObjectCreator( const psys::SubPluginInfo &info )
-      : psys::ISubPlugin( info )
+    IObjectCreator( const pf::SubPluginInfo &info )
+      : pf::ISubPlugin( info )
     {
 
     }
@@ -60,7 +60,7 @@ namespace pf
     {
 
     }
-    ObjectCreator(const psys::SubPluginInfo &info)
+    ObjectCreator(const pf::SubPluginInfo &info)
       : IObjectCreator<Interface>( info )
     {
 

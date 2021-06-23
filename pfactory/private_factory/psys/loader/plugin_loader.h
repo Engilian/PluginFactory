@@ -1,8 +1,8 @@
 #pragma once
 #include "iplugin_loader.h"
 
-namespace psys {
-
+namespace pf
+{
   ///
   /// \brief Plugin download interface
   ///

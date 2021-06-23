@@ -1,5 +1,5 @@
 #include "plugin_loader_private.h"
-using namespace psys;
+using namespace pf;
 
 #include <QDir>
 #include <QDebug>

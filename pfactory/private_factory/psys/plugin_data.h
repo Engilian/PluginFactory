@@ -2,7 +2,7 @@
 #include <memory>
 #include <QString>
 
-namespace psys
+namespace pf
 {
   class IPlugin;
   class PluginData

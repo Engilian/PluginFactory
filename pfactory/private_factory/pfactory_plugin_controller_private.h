@@ -21,19 +21,19 @@ namespace pf
     QString pluginsDirectory() const;
 
   public:
-    psys::PluginData plugin(psys::SubPlugin creator) const;
-    QList<psys::SubPlugin> creators(const QString &interface) const;
+    pf::PluginData plugin(pf::SubPlugin creator) const;
+    QList<pf::SubPlugin> creators(const QString &interface) const;
 
   public:
-    QList<psys::PluginData> plugins() const;
+    QList<pf::PluginData> plugins() const;
 
   protected:
     void _loadPlugins();
-    bool _containsSubPlugin(const QString &pluginId, const psys::SubPluginInfo &info ) const;
+    bool _containsSubPlugin(const QString &pluginId, const pf::SubPluginInfo &info ) const;
   private:
-    psys::PluginLoader                  _loader;
+    pf::PluginLoader                  _loader;
     PFactoryPluginController            _controller;
-    QMultiMap<QString, psys::SubPlugin> _creators;
+    QMultiMap<QString, pf::SubPlugin> _creators;
   };
 
 }

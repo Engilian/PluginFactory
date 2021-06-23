@@ -9,7 +9,7 @@ namespace pf {
   /// \details This interface is required to replace the plug-in loader,
   ///  if necessary, to obtain additional functionality.
   ///
-  class ICreatorFactoryPluginLoader: public IObjectCreator<psys::IPluginLoader>
+  class ICreatorFactoryPluginLoader: public IObjectCreator<pf::IPluginLoader>
   {
   protected:
     ///
@@ -20,7 +20,7 @@ namespace pf {
   public:
     virtual ~ICreatorFactoryPluginLoader();
   public:
-    virtual psys::IPluginLoader *create() const;
+    virtual pf::IPluginLoader *create() const;
   };
 
 }
