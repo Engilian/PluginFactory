@@ -1,7 +1,6 @@
 #pragma once
 #include "pfactory_policy.h"
 #include "pfactory_interface_private.h"
-#include "pfactory/plugin/object_creator.h"
 
 namespace pf {
 
@@ -33,7 +32,6 @@ namespace pf {
     /// \brief Error policy
     ///
     ErrorPolicy<Interface>                      _policy;
-
   };
 
 }

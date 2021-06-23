@@ -1,6 +1,6 @@
 #pragma once
 #include <typeinfo>
-#include "pfactory/plugin/psys/isub_plugin.h"
+#include "psys/isub_plugin.h"
 
 #define TO_STRING(x) typeid(x).name()
 

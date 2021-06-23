@@ -2,8 +2,8 @@
 #include <QMap>
 #include <QMultiMap>
 
-#include "pfactory/plugin_interfaces/ipfactory_plugin_controller.h"
-#include "pfactory/plugin/psys/loader/plugin_loader.h"
+#include "psys/loader/plugin_loader.h"
+#include "ipfactory_plugin_controller.h"
 
 namespace pf
 {

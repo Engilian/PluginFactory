@@ -6,7 +6,6 @@
 #include "private_factory/pfactory_policy.h"
 #include "private_factory/pfactory_interface_private.h"
 #include "private_factory/pfactory_template_plug_creator_private.h"
-#include "private_factory/internal_object_creator_private.h"
 #include "private_factory/pfactory_plugin_controller_private.h"
 
 namespace pf
@@ -191,7 +190,7 @@ namespace pf
 
         _internal[ interfaceName ][ objectClassName ] =
             std::make_shared<PFactoryTemplatePlugCreatorPrivate<Interface, ErrorPolicy>>
-                ( new InternalObjectCreatorPrivate<Interface, Obj>( objectClassName, interfaceName ) );
+                ( new ObjectCreator<Interface, Obj>( objectClassName, interfaceName ) );
 
         if ( !_external.contains ( interfaceName ) )  loadCreators<Interface>( interfaceName );
       }

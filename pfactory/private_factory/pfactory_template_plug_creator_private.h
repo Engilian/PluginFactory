@@ -1,6 +1,6 @@
 #pragma once
+#include "object_creator.h"
 #include "pfactory_template_interface_private.h"
-#include "pfactory/plugin/object_creator.h"
 
 namespace pf
 {

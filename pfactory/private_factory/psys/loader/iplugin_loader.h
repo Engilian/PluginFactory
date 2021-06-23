@@ -1,6 +1,6 @@
 #pragma once
-#include "pfactory/plugin/psys/iplugin.h"
-#include "pfactory/plugin/psys/plugin_data.h"
+#include "../iplugin.h"
+#include "../plugin_data.h"
 
 namespace psys
 {
