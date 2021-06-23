@@ -1,5 +1,5 @@
 #pragma once
-#include <pfactory/plugin/psys/isub_plugin.h>
+#include "pfactory/plugin/psys/isub_plugin.h"
 #include "object_creator.h"
 
 namespace pf
@@ -8,7 +8,7 @@ namespace pf
   {
     const psys::SubPluginInfo info;
   protected:
-    SubPluginCreator( const psys::SubPluginInfo &info );
+    SubPluginCreator(const psys::SubPluginInfo &info);
   public:
     virtual ~SubPluginCreator();
   public:

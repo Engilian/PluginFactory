@@ -3,7 +3,7 @@
 #include <QMultiMap>
 
 #include "pfactory/plugin_interfaces/ipfactory_plugin_controller.h"
-#include <pfactory/plugin/psys/loader/plugin_loader.h>
+#include "pfactory/plugin/psys/loader/plugin_loader.h"
 
 namespace pf
 {

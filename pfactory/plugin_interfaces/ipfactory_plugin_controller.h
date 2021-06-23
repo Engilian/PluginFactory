@@ -1,10 +1,10 @@
 #pragma once
 #include <QMap>
 
-#include <pfactory/plugin/psys/iplugin.h>
-#include <pfactory/plugin/psys/plugin_data.h>
-#include <pfactory/plugin/psys/isub_plugin.h>
-#include <pfactory/plugin/iobject_creator.h>
+#include "pfactory/plugin/psys/iplugin.h"
+#include "pfactory/plugin/psys/plugin_data.h"
+#include "pfactory/plugin/psys/isub_plugin.h"
+#include "pfactory/plugin/object_creator.h"
 
 namespace pf {
 

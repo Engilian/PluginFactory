@@ -1,6 +1,6 @@
 #pragma once
 #include <QHash>
-#include <pfactory/plugin/psys/loader/iplugin_loader.h>
+#include "pfactory/plugin/psys/loader/iplugin_loader.h"
 
 namespace psys
 {

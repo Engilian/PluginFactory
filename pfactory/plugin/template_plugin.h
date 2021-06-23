@@ -1,7 +1,6 @@
 #pragma once
-
 #include <QMap>
-#include <pfactory/plugin/psys/iplugin.h>
+#include "pfactory/plugin/psys/iplugin.h"
 #include "sub_plugin_creator.h"
 
 

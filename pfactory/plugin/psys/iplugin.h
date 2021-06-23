@@ -5,8 +5,11 @@
 
 #include "isub_plugin.h"
 
+#ifndef FACTORY_PLUGIN_VALID_STRING
 #define FACTORY_PLUGIN_VALID_STRING \
   "ru.engilian@gmail.com.Factorypfactory/plugin/1.1"
+#endif
+
 
 namespace psys
 {

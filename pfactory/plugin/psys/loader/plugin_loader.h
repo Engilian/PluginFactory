@@ -45,6 +45,6 @@ namespace psys {
     QList<PluginData> loadedPlugins() const override;
   public:
     void freeLoadedPlugins() override;
-    void freePlugin( const QString &pluginId ) override;
+    void freePlugin(const QString &pluginId) override;
   };
 }

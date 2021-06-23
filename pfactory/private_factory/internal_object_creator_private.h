@@ -1,5 +1,5 @@
 #pragma once
-#include <pfactory/plugin/iobject_creator.h>
+#include "pfactory/plugin/object_creator.h"
 
 namespace pf
 {

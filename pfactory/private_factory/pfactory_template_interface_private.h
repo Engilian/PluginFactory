@@ -1,7 +1,7 @@
 #pragma once
+#include "pfactory_policy.h"
 #include "pfactory_interface_private.h"
-#include <pfactory/plugin/iobject_creator.h>
-#include "pfactory/error_policy/pfactory_ignore_error_policy.h"
+#include "pfactory/plugin/object_creator.h"
 
 namespace pf {
 
