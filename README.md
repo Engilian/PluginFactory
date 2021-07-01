@@ -103,7 +103,7 @@ include(plugins.pri)
 plugins.pri
 -----------
 
-At the moment, the library connection is not very convenient. In the future it will be corrected.
+An example of a generated connection by the development environment. 
 ```qmake
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/external/PluginFactory/release/ -lPluginFactory
@@ -158,18 +158,14 @@ TestPluginFactoryPlugin::TestPluginFactoryPlugin(QObject *parent)
     : QObject(parent)
     , pf::TemplatePlugin()
 {
-
     // Adding the QObject interface implementation -> QTcpServer.
-    regCreator<QObject, QTcpServer>( psys::SubPluginInfo
-    { "QTcpServer", "QObject" } );
+    regCreator<QObject, QTcpServer>( "QTcpServer", "QObject" );
 
     // Adding the QObject interface implementation -> QTcpSocket.
-    regCreator<QObject, QTcpSocket>( psys::SubPluginInfo
-    { "QTcpSocket", "QObject" } );
+    regCreator<QObject, QTcpSocket>( "QTcpSocket", "QObject" );
 
     // Adding the QObject interface implementation -> QNetworkAccessManager.
-    regCreator<QObject, QNetworkAccessManager>( psys::SubPluginInfo
-    { "QNetworkAccessManager", "QObject" } );
+    regCreator<QObject, QNetworkAccessManager>( "QNetworkAccessManager", "QObject" );
 }
 
 TestPluginFactoryPlugin::~TestPluginFactoryPlugin()

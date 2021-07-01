@@ -12,8 +12,3 @@ IPlugin::~IPlugin()
 {
 
 }
-
-ISubPlugin *IPlugin::create(const SubPluginInfo &info) const
-{
-  return create( info.id );
-}

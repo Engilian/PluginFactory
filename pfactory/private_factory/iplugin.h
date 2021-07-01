@@ -3,7 +3,7 @@
 #include <QObject>
 #include <memory>
 
-#include "isub_plugin.h"
+#include "object_creator.h"
 
 #ifndef FACTORY_PLUGIN_VALID_STRING
 #define FACTORY_PLUGIN_VALID_STRING \
@@ -31,25 +31,8 @@ namespace pf
     /// \brief List of information implemented plugins
     /// \return list information
     ///
-    virtual QList<SubPluginInfo> subPluginInfoList() const = 0;
-
-    ///
-    /// \brief Create a sub plugin
-    /// \param id sub plugin id
-    /// \warning If there is no sub plug-in, it returns nullptr
-    /// \return sub plugin
-    ///
-    virtual ISubPlugin *create(const QString &id) const = 0;
-
-    ///
-    /// \brief Create a sub plugin
-    /// \param info information implemented plugin
-    /// \warning If there is no sub plug-in, it returns nullptr
-    /// \return sub plugin
-    ///
-    virtual ISubPlugin *create(const SubPluginInfo &info) const;
+    virtual QList<Creator> creators() const = 0;
   };
-
 }
 
 Q_DECLARE_INTERFACE(pf::IPlugin, FACTORY_PLUGIN_VALID_STRING);

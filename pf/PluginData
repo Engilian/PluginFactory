@@ -1,2 +1,0 @@
-#include "pfactory/plugin/psys/iplugin.h"
-#include "pfactory/plugin/psys/plugin_data.h"

@@ -1,10 +1,8 @@
 #pragma once
-#include <memory>
-#include <QString>
+#include "iplugin.h"
 
 namespace pf
 {
-  class IPlugin;
   class PluginData
   {
   public:
@@ -23,5 +21,22 @@ namespace pf
     QString fileName() const;
     QString absoluteFilePath() const;
     std::shared_ptr<IPlugin> plugin() const;
+  };
+
+  ///
+  /// \brief The PFactoryPluginControllerPrivate class
+  ///
+  class PluginController final
+  {
+    class Loader;
+    using LoaderP = std::shared_ptr<Loader>;
+    LoaderP   _loader;
+  public:
+    PluginController();
+    ~PluginController();
+
+  public:
+    QList<pf::PluginData> plugins() const;
+    QList<pf::Creator> creators(const QString &interface) const;
   };
 }

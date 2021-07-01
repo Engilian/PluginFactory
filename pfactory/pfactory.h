@@ -3,10 +3,8 @@
 #include <memory>
 #include <typeinfo>
 
-#include "private_factory/pfactory_policy.h"
-#include "private_factory/pfactory_interface_private.h"
-#include "private_factory/pfactory_template_plug_creator_private.h"
-#include "private_factory/pfactory_plugin_controller_private.h"
+#include "private_factory/error_policy.h"
+#include "private_factory/plugin_controller.h"
 
 namespace pf
 {
@@ -68,17 +66,16 @@ namespace pf
       Internal, External, Any
     };
 
-  private:
-    using PFInterfacePtr = std::shared_ptr<PFactoryInterfacePrivate>;
   public:
     PFactory()
-      : _controller ( std::make_shared<PFactoryPluginControllerPrivate>() )
+      : _controller ( new PluginController() )
     {
     }
     virtual ~PFactory()
     {
       _external.clear ();
       _internal.clear ();
+      delete _controller;
     }
   public:
     ///
@@ -155,7 +152,7 @@ namespace pf
 
       if ( !_external.contains ( interfaceName ) ) {
 
-        _external[ interfaceName ] = QMap<QString, PFInterfacePtr>();
+        _external[ interfaceName ] = QMap<QString, Creator>();
         loadCreators<Interface>( interfaceName );
       }
     }
@@ -189,14 +186,10 @@ namespace pf
         }
 
         _internal[ interfaceName ][ objectClassName ] =
-            std::make_shared<PFactoryTemplatePlugCreatorPrivate<Interface, ErrorPolicy>>
-                ( new ObjectCreator<Interface, Obj>( objectClassName, interfaceName ) );
+            std::make_shared<PolicyObjectCreator<Interface, Obj, ErrorPolicy>>
+                ( objectClassName, interfaceName );
 
         if ( !_external.contains ( interfaceName ) )  loadCreators<Interface>( interfaceName );
-      }
-      else {
-
-        ErrorPolicy<Interface>().duplicateRegistered( obj );
       }
     }
 
@@ -318,7 +311,7 @@ namespace pf
     /// \brief Get the controller working with plugins.
     /// \return plugincontroller
     ///
-    PFactoryPluginController controller() const
+    PluginController *controller() const
     {
       return _controller;
     }
@@ -434,13 +427,8 @@ namespace pf
     Interface *createExternalByClassId(const QString &interface, const QString &classId) const
     {
       auto creators = _external[ interface ];
-
-      if ( creators.contains( classId ) ) {
-
-        return std::dynamic_pointer_cast<PFactoryTemplatePlugCreatorPrivate
-            <Interface, ErrorPolicy>>( creators[ classId ] )->create();
-      }
-
+      if ( creators.contains( classId ) )
+        return std::dynamic_pointer_cast<IObjectCreator<Interface>>( creators[ classId ] )->create();
       return ErrorPolicy<Interface>().createFailed( classId );
     }
 
@@ -455,20 +443,15 @@ namespace pf
     Interface *createInternalByClassId(const QString &interface, const QString &classId) const
     {
       auto creators = _internal[ interface ];
-
-      if ( creators.contains( classId ) ) {
-
-        return std::dynamic_pointer_cast<PFactoryTemplatePlugCreatorPrivate
-            <Interface, ErrorPolicy>>( creators[ classId ] )->create();
-      }
-
+      if ( creators.contains( classId ) )
+        return std::dynamic_pointer_cast<IObjectCreator<Interface>>( creators[ classId ] )->create();
       return ErrorPolicy<Interface>().createFailed( classId );
     }
   private:
     template<typename Interface>
     void loadCreators(const QString &interface)
     {
-      QMap<QString, PFInterfacePtr> &creators = _external[ interface ];
+      QMap<QString, Creator> &creators = _external[ interface ];
       for ( auto sub: _controller->creators ( interface ) ) {
 
         auto objCreator = std::dynamic_pointer_cast
@@ -476,22 +459,19 @@ namespace pf
 
         if ( objCreator ) {
 
-          creators[ sub->subPluginInfo().id ] =
-              PFInterfacePtr (
-                new PFactoryTemplatePlugCreatorPrivate
-                <Interface, ErrorPolicy>( objCreator )
-                );
+          creators[ sub->id() ] =
+              std::make_shared<PolicyObjectCreatorDecorator<Interface, ErrorPolicy>>( objCreator );
         }
         else {
           fprintf ( stderr, "Error cast creator %s",
-                    sub->subPluginInfo ().id.toStdString ().c_str () );
+                    sub->id().toStdString ().c_str () );
         }
       }
     }
 
     // --------------------- PRIVATE VARIABLES ------------------------------
   private:
-    PFactoryPluginController                    _controller;
+    PluginController  *_controller;
   private:
     ///
     /// \brief Prototype interface name, interface name
@@ -507,13 +487,13 @@ namespace pf
     /// \brief External creators
     /// \details QMap<Obj interface, QMap<Sub plugin id, Creator >>
     ///
-    QMap<QString, QMap<QString, PFInterfacePtr>> _external;
+    QMap<QString, QMap<QString, Creator>> _external;
 
     ///
     /// \brief Internal creators
     /// \details QMap<Obj interface, QMap<Class id, Creator >>
     ///
-    QMap<QString, QMap<QString, PFInterfacePtr>> _internal;
+    QMap<QString, QMap<QString, Creator>> _internal;
 
   };
 
