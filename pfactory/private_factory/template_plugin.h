@@ -1,5 +1,5 @@
 #pragma once
-#include <QMap>
+#include <QList>
 #include "iplugin.h"
 
 
@@ -14,7 +14,7 @@ namespace pf
   public:
     virtual ~TemplatePlugin();
 
-  protected:
+  public:
     template<class Interface, class Obj>
     bool regCreator(const QString &id, const QString &interface)
     {
@@ -22,7 +22,7 @@ namespace pf
         if ( c->id() == id && c->interface() == interface )
           return false;
 
-      m_creators.append( std::make_shared<ObjectCreator<Interface, Obj>(id, interface)>() );
+      m_creators.append( std::make_shared<ObjectCreator<Interface, Obj>>(id, interface) );
       return true;
     }
 

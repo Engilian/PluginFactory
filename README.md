@@ -133,7 +133,7 @@ class TestPluginFactoryPlugin final
     , public pf::TemplatePlugin
 {
     Q_OBJECT
-    Q_INTERFACES (psys::IPlugin)
+    Q_INTERFACES (pf::IPlugin)
 #if QT_VERSION >= 0x050000
     Q_PLUGIN_METADATA(IID FACTORY_PLUGIN_VALID_STRING FILE "TestPlugin.json")
 #endif // QT_VERSION >= 0x050000

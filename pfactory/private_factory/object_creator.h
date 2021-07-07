@@ -67,7 +67,7 @@ namespace pf
   public:
     ObjectCreator(const QString &id,
                   const QString &interface)
-      : IObjectCreator<Interface> ( id, interface )
+      : IObjectCreator<Interface> ()
       , m_id( id )
       , m_interface( interface )
     {

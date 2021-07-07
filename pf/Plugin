@@ -1,1 +1,1 @@
-#include "pfactory/plugin/iplugin.h"
+#include "pfactory/private_factory/iplugin.h"

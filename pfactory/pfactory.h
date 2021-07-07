@@ -16,9 +16,15 @@ namespace pf
   {
 
   protected:
-    PFactorySingleton() = default;
+    PFactorySingleton()
+    {
+
+    }
+
   public:
-    virtual ~PFactorySingleton() = default;
+    virtual ~PFactorySingleton()
+    {
+    }
   public:
     ///
     /// \brief Global instance
